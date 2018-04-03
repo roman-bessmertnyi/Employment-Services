@@ -8,7 +8,6 @@
 </head>
 <body>
 Main Page
-
 <p><a href = "http://localhost:8080/login">Hello world</a>
 </body>
 </html>
