@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class EmployerControlller {
 	@RequestMapping("/employer/home")
-	public String employer(){
+	public String employerHome(){
 		return "employer_home";
 	}
 	

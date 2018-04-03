@@ -7,9 +7,10 @@
 <title>Employment Services</title>
 </head>
 <body>
-<p>Login as a user</p>
-<p><a href = "http://localhost:8080/user/home">Success</a></p>
-<p><a href = "http://localhost:8080/admin/home">Admin login</a></p>
-<p><a href = "http://localhost:8080/home">Go back</a></p>
+<p>Hello A D M I N</p>
+<p>job category search</p>
+<p>job category curd table</p>
+<p><a href = "http://localhost:8080/admin/home">go back</a></p>
+<p><a href = "http://localhost:8080/home">log out</a></p>
 </body>
 </html>

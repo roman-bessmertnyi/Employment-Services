@@ -10,7 +10,7 @@
 <p>Hello employer</p>
 <p>Resume search</p>
 <p>Enter search criteria</p>
-<p>search criteria form</p>
+<p>Search criteria form</p>
 <p><a href = "http://localhost:8080/employer/resume/search">search</a></p>
 <p><a href = "http://localhost:8080/employer/home">go back</a></p>
 <p><a href = "http://localhost:8080/home">log out</a></p>
