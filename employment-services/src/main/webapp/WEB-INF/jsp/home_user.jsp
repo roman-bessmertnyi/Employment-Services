@@ -7,8 +7,9 @@
 <title>Employment Services</title>
 </head>
 <body>
-<p>Login as a user</p>
-<p><a href = "http://localhost:8080/home/user">Success</a></p>
-<p><a href = "http://localhost:8080/index">Go back</a></p>
+<p>Hello user</p>
+<p><a href = "http://localhost:8080/jobs/advance">detailed search</a></p>
+<p><a href = "http://localhost:8080/jobs/search">simple search</a></p>
+<p><a href = "http://localhost:8080/index">log out</a></p>
 </body>
 </html>
