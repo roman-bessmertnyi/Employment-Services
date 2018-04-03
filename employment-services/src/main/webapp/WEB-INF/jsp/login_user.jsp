@@ -7,12 +7,7 @@
 <title>Employment Services</title>
 </head>
 <body>
-<p>Main Page</p>
-<p>Users:</p>
-<p><a href = "http://localhost:8080/login/user">login</a></p>
-<p><a href = "http://localhost:8080/register/user">register</a></p>
-<p>Employers:</p>
-<p><a href = "http://localhost:8080/login/employer">login</a></p>
-<p><a href = "http://localhost:8080/register/employer">register</a></p>
+<p>Login as a user</p>
+<p><a href = "http://localhost:8080/index">Go back</a></p>
 </body>
 </html>

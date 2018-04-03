@@ -11,4 +11,23 @@ public class HomeController {
 		return "index";
 	}
 	
+	@RequestMapping("/login/user")
+	public String loginUser(){
+		return "login_user";
+	}
+	
+	@RequestMapping("/register/user")
+	public String registerUser(){
+		return "register_user";
+	}
+	
+	@RequestMapping("/login/employer")
+	public String loginEmployer(){
+		return "login_employer";
+	}
+	
+	@RequestMapping("/register/employer")
+	public String registerEmployer(){
+		return "register_employer";
+	}
 }
