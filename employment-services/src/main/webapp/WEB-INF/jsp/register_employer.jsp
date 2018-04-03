@@ -8,6 +8,6 @@
 </head>
 <body>
 <p>Register as an employer</p>
-<p><a href = "http://localhost:8080/index">Go back</a></p>
+<p><a href = "http://localhost:8080/home">Go back</a></p>
 </body>
 </html>

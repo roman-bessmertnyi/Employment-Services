@@ -7,10 +7,10 @@
 <title>Employment Services</title>
 </head>
 <body>
-<p>job list</p>
-<p>adjust criteria</p>
-<p>job1, job2, job 3 ect</p>
-<p><a href = "http://localhost:8080/home/user">go back</a></p>
-<p><a href = "http://localhost:8080/index">log out</a></p>
+<p>Hello employer</p>
+<p>Manage jobs and responses</p>
+<p>Job : responses table</p>
+<p><a href = "http://localhost:8080/employer/home">go back</a></p>
+<p><a href = "http://localhost:8080/home">log out</a></p>
 </body>
 </html>
