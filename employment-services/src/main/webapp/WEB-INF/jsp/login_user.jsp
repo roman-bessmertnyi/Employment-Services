@@ -10,37 +10,27 @@
 <title>Employment Services</title>
 </head>
 <body>
-	<h1>Spring Security Login Form (Database Authentication)</h1>
+	<h2>Login with Email and Password</h2>
 
-	<div id="login-box">
-
-		<h2>Login with Username and Password</h2>
-
-		<c:url var="loginUrl" value="/login/user" />
-		<form action="${loginUrl}" method="post" class="form-horizontal">
-			<c:if test="${param.error != null}">
-				<p>Invalid username and password.</p>
-				<p><c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}" /></p>
-			</c:if>
-			<c:if test="${param.logout != null}">
-				<p>You have been logged out successfully.</p>
-			</c:if>
-			<label for="email"></label> <input type="text" id="email"
-				name="email"> <label
-				for="password"></label> <input type="password" id="password"
-				name="password"> <input
-				type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-			<input type="submit" value="Log in">
-		</form>
-	</div>
+	<c:url var="loginUrl" value="/login/user" />
+	<form action="${loginUrl}" method="post" class="form-horizontal">
+		<c:if test="${param.error != null}">
+			<p>Invalid username and password.</p>
+			<p>
+				<c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}" />
+			</p>
+		</c:if>
+		<c:if test="${param.logout != null}">
+			<p>You have been logged out successfully.</p>
+		</c:if>
+		<label for="email"></label> <input type="text" id="email" name="email">
+		<label for="password"></label> <input type="password" id="password"
+			name="password"> <input type="hidden"
+			name="${_csrf.parameterName}" value="${_csrf.token}" /> <input
+			type="submit" value="Log in">
+	</form>
 	<p>
-		<a href="http://localhost:8080/user/home">Success</a>
-	</p>
-	<p>
-		<a href="http://localhost:8080/admin/home">Admin login</a>
-	</p>
-	<p>
-		<a href="http://localhost:8080/home">Go back</a>
+		<a href="/home">Go back</a>
 	</p>
 </body>
 </html>

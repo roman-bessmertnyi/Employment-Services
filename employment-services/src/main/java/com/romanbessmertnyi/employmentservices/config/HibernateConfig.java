@@ -3,7 +3,7 @@ package com.romanbessmertnyi.employmentservices.config;
 import java.util.Properties;
 
 import javax.sql.DataSource;
-
+ 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -24,14 +24,14 @@ public class HibernateConfig {
 	@Autowired
 	private Environment environment;
 
-	@Bean
+	/*@Bean
 	public LocalSessionFactoryBean sessionFactory() {
 		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
 		sessionFactory.setDataSource(dataSource());
 		sessionFactory.setPackagesToScan(new String[] { "com.romanbessmertnyi.employmentservices.model" });
 		sessionFactory.setHibernateProperties(hibernateProperties());
 		return sessionFactory;
-	}
+	}*/
 
 	@Bean
 	public DataSource dataSource() {
@@ -51,11 +51,11 @@ public class HibernateConfig {
 		return properties;
 	}
 
-	@Bean
+	/*@Bean
 	@Autowired
 	public HibernateTransactionManager transactionManager(SessionFactory s) {
 		HibernateTransactionManager txManager = new HibernateTransactionManager();
 		txManager.setSessionFactory(s);
 		return txManager;
-	}
+	}*/
 }

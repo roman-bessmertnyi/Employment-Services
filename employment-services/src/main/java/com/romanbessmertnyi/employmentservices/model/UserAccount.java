@@ -7,14 +7,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="user_account")
 public class UserAccount {
 
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "user_account_generator")
+	@SequenceGenerator(name="user_account_generator", sequenceName = "user_account_id_seq", allocationSize=50)
     private int id;
 	
 	@NotEmpty
@@ -29,7 +32,7 @@ public class UserAccount {
     @JoinColumn(name="user_type_id", nullable=false)
     private UserType userType;
 	
-	@NotEmpty
+	@NotNull
     @Column(name="enabled", nullable=false)
     private boolean enabled;
 

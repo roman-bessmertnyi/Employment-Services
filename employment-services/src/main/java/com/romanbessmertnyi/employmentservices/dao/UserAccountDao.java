@@ -1,16 +1,16 @@
 package com.romanbessmertnyi.employmentservices.dao;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.romanbessmertnyi.employmentservices.model.UserAccount;
 
-@Repository("userAccountDao")
-public class UserAccountDao  extends AbstractDao<Integer, UserAccount>{
-	public void save(UserAccount user) {
+@Repository
+public interface UserAccountDao extends JpaRepository<UserAccount, Integer>{
+	
+    UserAccount findByEmail(String email);
+	
+	/*public void save(UserAccount user) {
         persist(user);
     }
      
@@ -25,5 +25,5 @@ public class UserAccountDao  extends AbstractDao<Integer, UserAccount>{
     	cq.select(root).where(builder.equal(root.get("email"), email));
     	UserAccount result = getSession().createQuery(cq).getSingleResult();
     	return result;
-    }
+    }*/
 }

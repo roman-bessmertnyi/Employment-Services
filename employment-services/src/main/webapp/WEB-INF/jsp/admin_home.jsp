@@ -9,47 +9,31 @@
 <title>Employment Services</title>
 </head>
 <body>
-	<h1>Title : ${title}</h1>
-	<h1>Message : ${message}</h1>
-	
-	<c:url value="/j_spring_security_logout" var="logoutUrl" />
-	<form action="${logoutUrl}" method="post" id="logoutForm">
-		<input type="hidden" name="${_csrf.parameterName}"
-			value="${_csrf.token}" />
-	</form>
-	<script>
-		function formSubmit() {
-			document.getElementById("logoutForm").submit();
-		}
-	</script>
 
 	<c:if test="${pageContext.request.userPrincipal.name != null}">
-		<h2>
-			Welcome : ${pageContext.request.userPrincipal.name} | <a
-				href="javascript:formSubmit()"> Logout</a>
-		</h2>
+		<h2>Welcome, admin ${pageContext.request.userPrincipal.name}</h2>
 	</c:if>
 
 	<p>
-		<a href="http://localhost:8080/admin/locations">manage job locations</a>
+		<a href="/admin/locations">manage job locations</a>
 	</p>
 	<p>
-		<a href="http://localhost:8080/admin/login/report">view login statistics</a>
+		<a href="/admin/login/report">view login statistics</a>
 	</p>
 	<p>
-		<a href="http://localhost:8080/admin/manage/employers">manage registered employers</a>
+		<a href="/admin/manage/employers">manage registered employers</a>
 	</p>
 	<p>
-		<a href="http://localhost:8080/admin/manage/users">manage registered users</a>
+		<a href="/admin/manage/users">manage registered users</a>
 	</p>
 	<p>
-		<a href="http://localhost:8080/admin/settings">settings</a>
+		<a href="/admin/settings">settings</a>
 	</p>
 	<p>
-		<a href="http://localhost:8080/admin/statistics">general statistics</a>
+		<a href="/admin/statistics">general statistics</a>
 	</p>
 	<p>
-		<a href="http://localhost:8080/home">log out</a>
+		<a href="/logout">log out</a>
 	</p>
 </body>
 </html>

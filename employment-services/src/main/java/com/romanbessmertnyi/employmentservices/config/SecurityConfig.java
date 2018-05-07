@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -56,7 +55,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	        .antMatchers("/user/**").access("hasRole('user')")
 	        .antMatchers("/employer/**").access("hasRole('employer')")
 	        .and().formLogin().loginPage("/login/user")
-	        .defaultSuccessUrl("/home").failureUrl("/login/user?error=true")
+	        .defaultSuccessUrl("/home")
+	        .successHandler(new AppAuthenticationSuccessHandler())
+	        .failureUrl("/login/user?error=true")
 	        .usernameParameter("email").passwordParameter("password")
 	        .and().csrf()
 	        .and().exceptionHandling().accessDeniedPage("/403");

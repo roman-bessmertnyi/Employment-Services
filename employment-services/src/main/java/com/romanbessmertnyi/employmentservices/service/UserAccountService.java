@@ -24,7 +24,7 @@ public class UserAccountService {
     }
      
     public UserAccount findById(int id) {
-        return dao.findById(id);
+        return dao.findById(id).orElseThrow(() -> new RuntimeException("Target not found"));
     }
  
     public UserAccount findByEmail(String email) {
