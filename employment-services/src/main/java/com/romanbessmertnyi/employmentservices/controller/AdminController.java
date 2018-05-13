@@ -1,13 +1,20 @@
 package com.romanbessmertnyi.employmentservices.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.romanbessmertnyi.employmentservices.service.UserAccountService;
 
 @Controller
 public class AdminController {
+	@Autowired
+	UserAccountService userAccountService;
+	
 	@RequestMapping("/admin/home")
 	public String adminHome(ModelMap model){
 		model.addAttribute("user", getPrincipal());
@@ -32,9 +39,9 @@ public class AdminController {
 		return "admin_manage_employers";
 	}
 	
-	@RequestMapping("/admin/manage/users")
+	@GetMapping("/admin/manage/users")
 	public String adminManageUsers(ModelMap model){
-		model.addAttribute("user", getPrincipal());
+		model.addAttribute("user", userAccountService.findById(2));
 		return "admin_manage_users";
 	}
 	

@@ -52,4 +52,84 @@ public class SeekerProfile {
 	
 	@OneToMany(mappedBy = "seeker_profile")
     private List<SeekerSkillSet> seeker_skills;
+
+	public int getUser_account_id() {
+		return user_account_id;
+	}
+
+	public void setUser_account_id(int user_account_id) {
+		this.user_account_id = user_account_id;
+	}
+
+	public String getFirst_name() {
+		return first_name;
+	}
+
+	public void setFirst_name(String first_name) {
+		this.first_name = first_name;
+	}
+
+	public String getLast_name() {
+		return last_name;
+	}
+
+	public void setLast_name(String last_name) {
+		this.last_name = last_name;
+	}
+
+	public int getCurrent_salary() {
+		return current_salary;
+	}
+
+	public void setCurrent_salary(int current_salary) {
+		this.current_salary = current_salary;
+	}
+
+	public boolean isIs_annually_monthly() {
+		return is_annually_monthly;
+	}
+
+	public void setIs_annually_monthly(boolean is_annually_monthly) {
+		this.is_annually_monthly = is_annually_monthly;
+	}
+
+	public String getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+
+	public UserAccount getUser_account() {
+		return user_account;
+	}
+
+	public void setUser_account(UserAccount user_account) {
+		this.user_account = user_account;
+	}
+
+	public List<EducationDetail> getEducation_details() {
+		return education_details;
+	}
+
+	public void setEducation_details(List<EducationDetail> education_details) {
+		this.education_details = education_details;
+	}
+
+	public List<ExperienceDetail> getExperience_details() {
+		return experience_details;
+	}
+
+	public void setExperience_details(List<ExperienceDetail> experience_details) {
+		this.experience_details = experience_details;
+	}
+
+	public List<SeekerSkillSet> getSeeker_skills() {
+		return seeker_skills;
+	}
+
+	public void setSeeker_skills(List<SeekerSkillSet> seeker_skills) {
+		this.seeker_skills = seeker_skills;
+	}
 }

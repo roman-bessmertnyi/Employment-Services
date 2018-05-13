@@ -73,22 +73,13 @@ public class UserAccount {
 	
 	@OneToOne(mappedBy = "user_account")
     private SeekerProfile seeker_profile;
-	
-	
+
 	public int getId() {
 		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public String getEmail() {
@@ -99,20 +90,12 @@ public class UserAccount {
 		this.email = email;
 	}
 
-	public UserType getUserType() {
-		return userType;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setUserType(UserType userType) {
-		this.userType = userType;
-	}
-
-	public boolean isEnabled() {
-		return enabled;
-	}
-
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public Date getDate_of_birth() {
@@ -147,7 +130,15 @@ public class UserAccount {
 		this.registration_date = registration_date;
 	}
 
-	public int isGender() {
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public int getGender() {
 		return gender;
 	}
 
@@ -169,6 +160,30 @@ public class UserAccount {
 
 	public void setEmail_notification_active(boolean email_notification_active) {
 		this.email_notification_active = email_notification_active;
+	}
+
+	public UserType getUserType() {
+		return userType;
+	}
+
+	public void setUserType(UserType userType) {
+		this.userType = userType;
+	}
+
+	public UserLog getUser_log() {
+		return user_log;
+	}
+
+	public void setUser_log(UserLog user_log) {
+		this.user_log = user_log;
+	}
+
+	public SeekerProfile getSeeker_profile() {
+		return seeker_profile;
+	}
+
+	public void setSeeker_profile(SeekerProfile seeker_profile) {
+		this.seeker_profile = seeker_profile;
 	}
 
 	@Override
