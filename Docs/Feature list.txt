@@ -1,0 +1,24 @@
+routing +
+
+database
+
+database connection +
+
+design
+
+home page
+
+registration +
+
+authorization +
+
+user home page
+
+resume management
+
+resume creation
+
+job search
+
+employer home page
+

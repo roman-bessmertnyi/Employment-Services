@@ -44,15 +44,15 @@
     <title>Employment Services</title>
 
     <!-- Styles -->
-    <link href="resources/css/app.min.css" rel="stylesheet">
-    <link href="resources/css/custom.css" rel="stylesheet">
+    <link href="../resources/css/app.min.css" rel="stylesheet">
+    <link href="../resources/css/custom.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Oswald:100,300,400,500,600,800%7COpen+Sans:300,400,500,600,700,800%7CMontserrat:400,700' rel='stylesheet' type='text/css'>
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="icon" href="resources/img/favicon.ico">
+    <link rel="icon" href="../resources/img/favicon.ico">
   </head>
 
   <body class="nav-on-header">
@@ -66,8 +66,8 @@
           <a class="navbar-toggle" href="#" data-toggle="offcanvas"><i class="ti-menu"></i></a>
 
           <div class="logo-wrapper">
-            <a class="logo" href="/home"><img src="resources/img/logo.png" alt="logo"></a>
-            <a class="logo-alt" href="/home"><img src="resources/img/logo-alt.png" alt="logo-alt"></a>
+            <a class="logo" href="/home"><img src="../resources/img/logo.png" alt="logo"></a>
+            <a class="logo-alt" href="/home"><img src="../resources/img/logo-alt.png" alt="logo-alt"></a>
           </div>
 
         </div>
@@ -135,7 +135,7 @@
 
 
     <!-- Site header -->
-    <header class="site-header size-lg text-center" style="background-image: url(resources/img/bg-banner1.jpg)">
+    <header class="site-header size-lg text-center" style="background-image: url(../resources/img/bg-banner1.jpg)">
       <div class="container">
         <div class="col-xs-12">
           <br><br>
@@ -182,7 +182,7 @@
             <div class="col-xs-12">
               <a class="item-block" href="job-detail.html">
                 <header>
-                  <img src="resources/img/logo-google.jpg" alt="">
+                  <img src="../resources/img/logo-google.jpg" alt="">
                   <div class="hgroup">
                     <h4>Senior front-end developer</h4>
                     <h5>Google</h5>
@@ -201,7 +201,7 @@
             <div class="col-xs-12">
               <a class="item-block" href="job-detail.html">
                 <header>
-                  <img src="resources/img/logo-linkedin.png" alt="">
+                  <img src="../resources/img/logo-linkedin.png" alt="">
                   <div class="hgroup">
                     <h4>Software Engineer (Entry or Senior)</h4>
                     <h5>Linkedin</h5>
@@ -219,7 +219,7 @@
             <div class="col-xs-12">
               <a class="item-block" href="job-detail.html">
                 <header>
-                  <img src="resources/img/logo-envato.png" alt="">
+                  <img src="../resources/img/logo-envato.png" alt="">
                   <div class="hgroup">
                     <h4>Full Stack Web Developer</h4>
                     <h5>Envato</h5>
@@ -237,7 +237,7 @@
             <div class="col-xs-12">
               <a class="item-block" href="job-detail.html">
                 <header>
-                  <img src="resources/img/logo-facebook.png" alt="">
+                  <img src="../resources/img/logo-facebook.png" alt="">
                   <div class="hgroup">
                     <h4>Web Applications Developer</h4>
                     <h5>Facebook</h5>
@@ -255,7 +255,7 @@
             <div class="col-xs-12">
               <a class="item-block" href="job-detail.html">
                 <header>
-                  <img src="resources/img/logo-microsoft.jpg" alt="">
+                  <img src="../resources/img/logo-microsoft.jpg" alt="">
                   <div class="hgroup">
                     <h4>Sr. SQL Server Developer</h4>
                     <h5>Microsoft</h5>
@@ -279,7 +279,7 @@
 
 
       <!-- Facts -->
-      <section class="bg-img bg-repeat no-overlay section-sm" style="background-image: url(resources/img/bg-pattern.png)">
+      <section class="bg-img bg-repeat no-overlay section-sm" style="background-image: url(../resources/img/bg-pattern.png)">
         <div class="container">
 
           <div class="row">
@@ -329,7 +329,7 @@
 
           <div class="col-sm-12 col-md-6 hidden-xs hidden-sm">
             <br>
-            <img class="center-block" src="resources/img/how-it-works.png" alt="how it works">
+            <img class="center-block" src="../resources/img/how-it-works.png" alt="how it works">
           </div>
 
         </div>
@@ -390,7 +390,7 @@
 
 
       <!-- Newsletter -->
-      <section class="bg-img text-center" style="background-image: url(resources/img/bg-facts.jpg)">
+      <section class="bg-img text-center" style="background-image: url(../resources/img/bg-facts.jpg)">
         <div class="container">
           <h2><strong>Subscribe</strong></h2>
           <h6 class="font-alt">Get weekly top new jobs delivered to your inbox</h6>
@@ -479,8 +479,8 @@
     <!-- END Back to top button -->
 
     <!-- Scripts -->
-    <script src="resources/js/app.min.js"></script>
-    <script src="resources/js/custom.js"></script>
+    <script src="../resources/js/app.min.js"></script>
+    <script src="../resources/js/custom.js"></script>
 
   </body>
 </html>

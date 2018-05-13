@@ -5,18 +5,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="user_type")
-public class UserType {
+@Table(name="skill_set")
+public class SkillSet {
+
 	@Id @GeneratedValue(strategy=GenerationType.SEQUENCE)
-	@SequenceGenerator(name="user_type_generator", sequenceName = "user_type_id_seq")
+	@SequenceGenerator(name="skill_set_generator", sequenceName = "skill_set_id_seq")
     private int id; 
 	
-	@Column(name="user_type_name", unique=true, nullable=false)
+	@Column(name="skill_set_name", unique=true, nullable=false)
     private String name;
+	
+	@OneToOne(mappedBy = "skill_set")
+    private SeekerSkillSet seeker_skill_set;
 
 	public int getId() {
 		return id;
@@ -36,6 +41,6 @@ public class UserType {
 
 	@Override
 	public String toString() {
-		return "UserType [id=" + id + ", name=" + name + "]";
+		return "SkillSet [id=" + id + ", name=" + name + "]";
 	}
 }
