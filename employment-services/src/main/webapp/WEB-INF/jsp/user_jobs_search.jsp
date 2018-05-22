@@ -83,10 +83,14 @@
 
 	<!-- Page header -->
 	<header class="page-header bg-img size-lg"
-		style="background-image: url(../../resources/img/bg-banner2.jpg)">
+		style="background-image: url(../../../resources/img/bg-banner2.jpg)">
 	<div class="container">
 		<div class="header-detail">
-			<img class="logo" src="../../resources/img/logo-google.jpg" alt="">
+			<c:if test="${job.company.company_images.size() != 0}">
+							<img
+								src="../../../resources/img/${job.company.company_images.get(0).company_image}"
+								alt="">
+						</c:if>
 			<div class="hgroup">
 				<h1>${job.jobType.jobType}</h1>
 				<h3>
@@ -256,8 +260,8 @@
 	<!-- END Back to top button -->
 
 	<!-- Scripts -->
-	<script src="../../resources/js/app.min.js"></script>
-	<script src="../../resources/js/custom.js"></script>
+	<script src="../../../resources/js/app.min.js"></script>
+	<script src="../../../resources/js/custom.js"></script>
 
 </body>
 </html>

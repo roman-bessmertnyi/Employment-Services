@@ -286,10 +286,12 @@
 			<!-- Job item -->
 			<c:forEach items="${foundJobs}" var="job">
 				<div class="col-xs-12">
-					<a class="item-block"
-						href="/user/jobs/search/${job.id}">
-						<header> <img src="../../resources/img/logo-google.jpg"
-							alt="">
+					<a class="item-block" href="/user/jobs/search/${job.id}"> <header>
+						<c:if test="${job.company.company_images.size() != 0}">
+							<img
+								src="../../resources/img/${job.company.company_images.get(0).company_image}"
+								alt="">
+						</c:if>
 						<div class="hgroup">
 							<h4>${job.jobType.jobType}</h4>
 							<h5>
@@ -552,7 +554,7 @@
 
 	<!-- Scripts -->
 	<script src="../../resources/js/app.min.js"></script>
-	<script src="../../../resources/js/custom.js"></script>
+	<script src="../../resources/js/custom.js"></script>
 
 </body>
 </html>

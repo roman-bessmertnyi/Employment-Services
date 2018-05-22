@@ -14,8 +14,8 @@
 <title>Employment Services</title>
 
 <!-- Styles -->
-<link href="../resources/css/app.min.css" rel="stylesheet">
-<link href="../resources/css/custom.css" rel="stylesheet">
+<link href="../../resources/css/app.min.css" rel="stylesheet">
+<link href="../../resources/css/custom.css" rel="stylesheet">
 
 <!-- Fonts -->
 <link
@@ -24,7 +24,7 @@
 
 <!-- Favicons -->
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="icon" href="../resources/img/favicon.ico">
+<link rel="icon" href="../../resources/img/favicon.ico">
 </head>
 
 <body class="nav-on-header">
@@ -40,9 +40,9 @@
 
 			<div class="logo-wrapper">
 				<a class="logo" href="index-user.html"><img
-					src="../resources/img/logo.png" alt="logo"></a> <a
+					src="../../resources/img/logo.png" alt="logo"></a> <a
 					class="logo-alt" href="index-user.html"><img
-					src="../resources/img/logo-alt.png" alt="logo-alt"></a>
+					src="../../resources/img/logo-alt.png" alt="logo-alt"></a>
 			</div>
 
 		</div>
@@ -101,113 +101,135 @@
 
 
 	<!-- Page header -->
-	<header class="page-header bg-img"
-		style="background-image: url(../resources/img/bg-banner1.jpg);">
-	<!-- <div class="container page-name">
-			<h1 class="text-center">Browse companies</h1>
-			<p class="lead text-center">Use following search box to find
-				companies that fits you better</p>
+	<header class="page-header bg-img size-lg"
+		style="background-image: url(../../resources/img/bg-banner2.jpg)">
+	<div class="container">
+		<div class="header-detail">
+			<c:if test="${company.company_images.size() != 0}">
+				<img
+					src="../../resources/img/${company.company_images.get(0).company_image}"
+					alt="">
+			</c:if>
+			<div class="hgroup">
+				<h1>${company.company_name}</h1>
+				<h3>${company.busisness_stream.business_stream_name}</h3>
+			</div>
+			<hr>
+			<p class="lead">${company.profile_description}</p>
+
+			<!-- <ul class="details cols-3">
+            <li>
+              <i class="fa fa-map-marker"></i>
+              <span>Menlo Park, CA</span>
+            </li>
+
+            <li>
+              <i class="fa fa-globe"></i>
+              <a href="#">Google.com</a>
+            </li>
+
+            <li>
+              <i class="fa fa-users"></i>
+              <span>50,000 - 70,000 employer</span>
+            </li>
+
+            <li>
+              <i class="fa fa-birthday-cake"></i>
+              <span>From 1998</span>
+            </li>
+
+            <li>
+              <i class="fa fa-phone"></i>
+              <span>(+1) 123 456 7890</span>
+            </li>
+
+            <li>
+              <i class="fa fa-envelope"></i>
+              <a href="#">info@google.com</a>
+            </li>
+          </ul> -->
+
+			<div class="button-group">
+				<!-- <ul class="social-icons">
+              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+              <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+              <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+            </ul> -->
+
+				<div class="action-buttons">
+					<a class="btn btn-gray" href="#">Favorite</a> <a
+						class="btn btn-success" href="#">Contact</a>
+				</div>
+			</div>
+
 		</div>
-
-		<div class="container">
-			<form action="#">
-
-				<div class="row">
-					<div class="form-group col-xs-12 col-sm-4">
-						<input type="text" class="form-control" placeholder="Keyword">
-					</div>
-
-					<div class="form-group col-xs-12 col-sm-4">
-						<input type="text" class="form-control" placeholder="Location">
-					</div>
-
-					<div class="form-group col-xs-12 col-sm-4">
-						<select class="form-control selectpicker" multiple>
-							<option selected>All categories</option>
-							<option>Developer</option>
-							<option>Designer</option>
-							<option>Customer service</option>
-							<option>Finance</option>
-							<option>Healthcare</option>
-							<option>Sale</option>
-							<option>Marketing</option>
-							<option>Information technology</option>
-							<option>Others</option>
-						</select>
-					</div>
-
-				</div>
-
-				<div class="button-group">
-					<div class="action-buttons">
-						<button class="btn btn-primary">Apply filter</button>
-					</div>
-				</div>
-
-			</form>
-
-		</div> --> </header>
+	</div>
+	</header>
 	<!-- END Page header -->
 
 
 	<!-- Main container -->
-	<main> <section class="no-padding-top bg-alt">
+	<main> <!-- Company detail --> <!-- <section>
 	<div class="container">
+
+		<header class="section-header"> <span>About</span>
+		<h2>Company detail</h2>
+		</header>
+
+		<p>///</p>
+		<p>///</p>
+
+	</div>
+	</section> --> <!-- END Company detail --> <!-- Open positions --> <section
+		id="open-positions" class="bg-alt">
+	<div class="container">
+		<header class="section-header"> <span>vacancies</span>
+		<h2>Open positions</h2>
+		</header>
+
 		<div class="row">
-
-			<!-- <div class="col-xs-12">
-					<br>
-					<h5>
-						We found <strong>86</strong> matches, you're watching <i>10</i> to
-						<i>15</i>
-					</h5>
-				</div> -->
-
-			<!-- Company detail -->
-			<c:forEach items="${companies}" var="company">
+			<c:forEach items="${foundJobs}" var="job">
+				<!-- Job item -->
 				<div class="col-xs-12">
-					<a class="item-block" href="/company/detail/${company.id}"> <header>
-						<c:if test="${company.company_images.size() != 0}">
+					<a class="item-block" href="/user/jobs/search/${job.id}"> <header>
+						<c:if test="${job.company.company_images.size() != 0}">
 							<img
-								src="../resources/img/${company.company_images.get(0).company_image}"
+								src="../../resources/img/${job.company.company_images.get(0).company_image}"
 								alt="">
 						</c:if>
 						<div class="hgroup">
-							<h4>${company.company_name}</h4>
-							<h5>${company.busisness_stream.business_stream_name}</h5>
+							<h4>${job.jobType.jobType}r</h4>
+							<h5>
+								${job.company.company_name} <span class="label label-success">Full-time</span>
+							</h5>
 						</div>
-						<span class="open-position">${company.job_posts.size()}
-							open position</span> </header>
+						<time>Posted: ${job.createdDate}</time> </header>
 
 						<div class="item-body">
-							<p>${company.profile_description}</p>
-						</div>
+							<p>${job.jobDescription}</p>
+						</div> <footer>
+						<ul class="details cols-3">
+							<li><i class="fa fa-map-marker"></i> <span>${job.jobLocation.street_adress},
+									${job.jobLocation.city}</span></li>
+
+							<!-- <li><i class="fa fa-money"></i> <span>$90,000 -
+									$110,000 / year</span></li>
+
+							<li><i class="fa fa-certificate"></i> <span>Master or
+									Bachelor</span></li> -->
+						</ul>
+						</footer>
 					</a>
 				</div>
+				<!-- END Job item -->
 			</c:forEach>
-			<!-- END Company detail -->
-
-
-			<!-- Page navigation -->
-			<!-- <nav class="text-center">
-					<ul class="pagination">
-						<li><a href="#" aria-label="Previous"> <i
-								class="ti-angle-left"></i>
-						</a></li>
-						<li><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li class="active"><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#" aria-label="Next"> <i
-								class="ti-angle-right"></i>
-						</a></li>
-					</ul>
-				</nav> -->
-			<!-- END Page navigation -->
 
 		</div>
+
 	</div>
-	</section> </main>
+	</section> <!-- END Open positions --> </main>
 	<!-- END Main container -->
 
 
@@ -283,8 +305,8 @@
 	<!-- END Back to top button -->
 
 	<!-- Scripts -->
-	<script src="../resources/js/app.min.js"></script>
-	<script src="../resources/js/custom.js"></script>
+	<script src="../../resources/js/app.min.js"></script>
+	<script src="../../resources/js/custom.js"></script>
 
 </body>
 </html>

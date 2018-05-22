@@ -6,26 +6,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.romanbessmertnyi.employmentservices.dao.JobPostDao;
-import com.romanbessmertnyi.employmentservices.model.JobPost;
+import com.romanbessmertnyi.employmentservices.dao.SeekerDao;
+import com.romanbessmertnyi.employmentservices.model.SeekerProfile;
 
-@Service("jobPostService")
+@Service("seekerService")
 @Transactional
-public class JobPostService {
+public class SeekerService {
 	@Autowired
-	private JobPostDao dao;
+	private SeekerDao dao;
 
-	public List<JobPost> searchBy(String key, String loc) {
+	/*public List<SeekerProfile> searchBy(String key, String loc) {
 		// return dao.findByJobType_JobTypeContainingOrJobDescriptionContaining(key,
 		// key);
 		return dao.searchBy(key, loc);
-	}
+	}*/
 
-	public List<JobPost> findAll() {
+	public List<SeekerProfile> findAll() {
 		return dao.findAll();
 	}
 
-	public JobPost findById(int id) {
+	public SeekerProfile findById(int id) {
 		return dao.findById(id).orElseThrow(() -> new RuntimeException("Target not found"));
 	}
 }

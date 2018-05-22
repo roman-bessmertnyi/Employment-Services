@@ -1,5 +1,7 @@
 package com.romanbessmertnyi.employmentservices.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -14,10 +16,14 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.romanbessmertnyi.employmentservices.model.Company;
+import com.romanbessmertnyi.employmentservices.model.JobPost;
 import com.romanbessmertnyi.employmentservices.model.UserAccount;
+import com.romanbessmertnyi.employmentservices.service.CompanyService;
 import com.romanbessmertnyi.employmentservices.service.UserAccountService;
 
 @Controller
@@ -25,6 +31,10 @@ public class HomeController {
 
 	@Autowired
 	UserAccountService userAccountService;
+	
+	@Autowired
+	CompanyService companyService;
+
 	
 	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
 	public String home() {
@@ -90,7 +100,18 @@ public class HomeController {
 	@RequestMapping("/companies")
 	public String registerUser(ModelMap model) {
 		model.addAttribute("user", getPrincipal());
+		
+		List<Company> companies = companyService.findAll();
+		model.addAttribute("companies", companies);
 		return "companies";
+	}
+	
+	@RequestMapping("/company/detail/{id}")
+	public String userJobsSearch(@PathVariable("id") int companyId, ModelMap model) {
+		Company company = companyService.findById(companyId);
+		model.addAttribute("company", company);
+		model.addAttribute("foundJobs", company.getJob_posts());
+		return "company_detail";
 	}
 	
 	private String getPrincipal(){

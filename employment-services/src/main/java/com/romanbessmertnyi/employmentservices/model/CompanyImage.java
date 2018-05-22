@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -24,9 +25,9 @@ public class CompanyImage {
     @JoinColumn(name="company_id", nullable=false)
     private Company company;
 	
-	@NotNull
-	@Column(name="company_image", nullable=false)
-    private byte[] company_image;
+	@NotEmpty
+	@Column(name = "company_image", nullable = false)
+	private String company_image;
 
 	public int getId() {
 		return id;
@@ -44,17 +45,16 @@ public class CompanyImage {
 		this.company = company;
 	}
 
-	public byte[] getCompany_image() {
+	public String getCompany_image() {
 		return company_image;
 	}
 
-	public void setCompany_image(byte[] company_image) {
+	public void setCompany_image(String company_image) {
 		this.company_image = company_image;
 	}
 
 	@Override
 	public String toString() {
-		return "CompanyImage [id=" + id + ", company=" + company + ", company_image=" + Arrays.toString(company_image)
-				+ "]";
+		return "CompanyImage [id=" + id + ", company=" + company + ", company_image=" + company_image + "]";
 	}
 }
