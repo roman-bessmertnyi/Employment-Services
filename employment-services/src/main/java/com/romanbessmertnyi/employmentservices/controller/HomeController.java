@@ -36,21 +36,6 @@ public class HomeController {
 		return "login_user";
 	}
 
-	@RequestMapping("/register/user")
-	public String registerUser() {
-		return "register_user";
-	}
-
-	@RequestMapping("/login/employer")
-	public String loginEmployer() {
-		return "login_employer";
-	}
-
-	@RequestMapping("/register/employer")
-	public String registerEmployer() {
-		return "register_employer";
-	}
-	
 	@RequestMapping(value="/logout", method = RequestMethod.GET)
     public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -100,6 +85,13 @@ public class HomeController {
         model.addAttribute("user", getPrincipal());
         return "403";
     }
+	
+
+	@RequestMapping("/companies")
+	public String registerUser(ModelMap model) {
+		model.addAttribute("user", getPrincipal());
+		return "companies";
+	}
 	
 	private String getPrincipal(){
         String userName = null;

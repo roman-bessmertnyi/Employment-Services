@@ -70,6 +70,8 @@
 
 <body class="login-page">
 
+	<%@ page import="java.util.Date"%>
+	<%@ page import="java.text.SimpleDateFormat"%>
 
 	<main>
 
@@ -106,7 +108,47 @@
 				</div>
 			</div>
 
+			<hr class="hr-xs">
+
+			<div class="form-group">
+				<div class="input-group">
+					<span class="input-group-addon"><i
+						class="fa fa-birthday-cake"></i></span>
+					<form:input type="text" path="date_of_birth" id="date_of_birth"
+						class="form-control" placeholder="Date of birth" />
+				</div>
+			</div>
+
+			<hr class="hr-xs">
+
+			<div class="form-group">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-phone"></i></span>
+					<form:input type="text" path="contact_number" id="contact_number"
+						class="form-control" placeholder="Phone number" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="input-group">
+					<form:input type="text" path="gender" id="gender"
+						class="form-control" placeholder="1" />
+				</div>
+			</div>
+
 			<form:input type="hidden" path="enabled" id="enabled" value="true" />
+			
+			<form:input type="hidden" path="sms_notification_active" id="sms_notification_active" value="true" />
+			
+			<form:input type="hidden" path="email_notification_active" id="email_notification_active" value="true" />
+
+			<%
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+					String formatteddate = sdf.format(new Date());
+			%>
+
+			<form:input type="hidden" path="registration_date" id="registration_date"
+				value="<%=formatteddate%>" />
 
 			<form:input type="hidden" path="userType" id="userType" value="2" />
 

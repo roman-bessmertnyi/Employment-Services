@@ -17,6 +17,8 @@ import org.springframework.web.servlet.view.JstlView;
 public class AppConfig implements WebMvcConfigurer{
 	@Autowired
     RoleToUserTypeConverter roleToUserTypeConverter;
+	@Autowired
+	CategoryToJobTypeConverter categoryToJobTypeConverter;
 	
 	@Bean
 	public InternalResourceViewResolver viewResolver() {
@@ -30,6 +32,7 @@ public class AppConfig implements WebMvcConfigurer{
 	@Override
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverter(roleToUserTypeConverter);
+        registry.addConverter(categoryToJobTypeConverter);
     }
 	
 	@Override

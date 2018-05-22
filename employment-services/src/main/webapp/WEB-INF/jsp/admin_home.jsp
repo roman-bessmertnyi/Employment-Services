@@ -33,6 +33,9 @@
 		<a href="/admin/statistics">general statistics</a>
 	</p>
 	<p>
+		<a href="/admin/test">database test</a>
+	</p>
+	<p>
 		<a href="/logout">log out</a>
 	</p>
 </body>

@@ -2,6 +2,7 @@ package com.romanbessmertnyi.employmentservices.model;
 
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,11 +11,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="user_account")
@@ -32,6 +36,7 @@ public class UserAccount {
     @Column(name="password", nullable=false)
     private String password;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@NotNull
     @Column(name="date_of_birth", nullable=false)
     private Date date_of_birth;
@@ -43,6 +48,7 @@ public class UserAccount {
     @Column(name="user_image", nullable=false)
     private byte[] user_image;
 	
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @NotNull
     @Column(name="registration_date", nullable=false)
     private Date registration_date;
@@ -66,7 +72,10 @@ public class UserAccount {
 	
 	@ManyToOne
     @JoinColumn(name="user_type_id", nullable=false)
-    private UserType userType;
+    private UserType user_type;
+	
+	@OneToMany(mappedBy = "user_account")
+    private List<JobPostActivity> job_post_activities;
 	
 	@OneToOne(mappedBy = "user_account")
     private UserLog user_log;
@@ -163,11 +172,11 @@ public class UserAccount {
 	}
 
 	public UserType getUserType() {
-		return userType;
+		return user_type;
 	}
 
 	public void setUserType(UserType userType) {
-		this.userType = userType;
+		this.user_type = userType;
 	}
 
 	public UserLog getUser_log() {
@@ -188,7 +197,7 @@ public class UserAccount {
 
 	@Override
 	public String toString() {
-		return "UserAccount [id=" + id + ", email=" + email + ", password=" + password + ", userType=" + userType
+		return "UserAccount [id=" + id + ", email=" + email + ", password=" + password + ", userType=" + user_type
 				+ ", date_of_birth=" + date_of_birth + ", contact_number=" + contact_number + ", user_image="
 				+ Arrays.toString(user_image) + ", registration_date=" + registration_date + ", enabled=" + enabled
 				+ ", gender=" + gender + ", sms_notification_active=" + sms_notification_active

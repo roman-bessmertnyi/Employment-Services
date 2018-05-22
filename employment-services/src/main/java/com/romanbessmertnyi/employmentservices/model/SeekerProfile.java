@@ -13,45 +13,49 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="seeker_profile")
+@Table(name = "seeker_profile")
 public class SeekerProfile {
 	@Id
 	@NotNull
-    @Column(name="user_account_id", nullable=false)
-    private int user_account_id;
-	
+	@Column(name = "user_account_id", nullable = false)
+	private int user_account_id;
+
 	@NotEmpty
-    @Column(name="first_name", nullable=false)
-    private String first_name;
-	
+	@Column(name = "first_name", nullable = false)
+	private String first_name;
+
 	@NotEmpty
-    @Column(name="last_name", nullable=false)
-    private String last_name;
-	
-	@NotNull
-    @Column(name="current_salary", nullable=false)
-    private int current_salary;
-	
-	@NotNull
-    @Column(name="is_annually_monthly", nullable=false)
-    private boolean is_annually_monthly;
-	
+	@Column(name = "last_name", nullable = false)
+	private String last_name;
+
+	@Column(name = "current_salary")
+	private int current_salary;
+
+	@Column(name = "is_annually_monthly")
+	private boolean is_annually_monthly;
+
+	@Column(name = "currency")
+	private String currency;
+
 	@NotEmpty
-    @Column(name="currency", nullable=false)
-    private String currency;
+	@Column(name = "headline", nullable = false)
+	private String headline;
 	
+	@Column(name = "description")
+	private String description;
+
 	@OneToOne()
-	@JoinColumn(name="user_account_id")
-    private UserAccount user_account;
-	
+	@JoinColumn(name = "user_account_id")
+	private UserAccount user_account;
+
 	@OneToMany(mappedBy = "seeker_profile")
-    private List<EducationDetail> education_details;
-	
+	private List<EducationDetail> education_details;
+
 	@OneToMany(mappedBy = "seeker_profile")
-    private List<ExperienceDetail> experience_details;
-	
+	private List<ExperienceDetail> experience_details;
+
 	@OneToMany(mappedBy = "seeker_profile")
-    private List<SeekerSkillSet> seeker_skills;
+	private List<SeekerSkillSet> seeker_skills;
 
 	public int getUser_account_id() {
 		return user_account_id;
@@ -131,5 +135,21 @@ public class SeekerProfile {
 
 	public void setSeeker_skills(List<SeekerSkillSet> seeker_skills) {
 		this.seeker_skills = seeker_skills;
+	}
+
+	public String getHeadline() {
+		return headline;
+	}
+
+	public void setHeadline(String headline) {
+		this.headline = headline;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

@@ -11,12 +11,7 @@
 	<c:if test="${pageContext.request.userPrincipal.name != null}">
 		<h2>Welcome, admin ${pageContext.request.userPrincipal.name}</h2>
 	</c:if>
-	<p><c:out value = "${user.email}"/></p>
-	<p><c:out value = "${user.date_of_birth}"/></p>
-	<p><c:out value = "${user.contact_number}"/></p>
-	<p><c:out value = "${user.enabled}"/></p>
-	<p><c:out value = "${user.seeker_profile.first_name}"/></p>
-	<p><c:out value = "${user.seeker_profile.last_name}"/></p>
+	<p>user edit</p>
 	<p>user curd table</p>
 	<p>
 		<a href="/admin/home">go back</a>
