@@ -28,4 +28,9 @@ public class SeekerService {
 	public SeekerProfile findById(int id) {
 		return dao.findById(id).orElseThrow(() -> new RuntimeException("Target not found"));
 	}
+
+	public List<SeekerProfile> searchBy(String keyword, String location) {
+		// TODO location
+		return dao.searchBy(keyword);
+	}
 }

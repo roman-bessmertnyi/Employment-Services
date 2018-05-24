@@ -9,12 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.romanbessmertnyi.employmentservices.model.JobFilter;
-import com.romanbessmertnyi.employmentservices.model.JobPost;
-import com.romanbessmertnyi.employmentservices.model.JobType;
+import com.romanbessmertnyi.employmentservices.filters.SearchFilter;
+import com.romanbessmertnyi.employmentservices.model.SeekerProfile;
 import com.romanbessmertnyi.employmentservices.service.SeekerService;
 
 @Controller
@@ -39,27 +39,29 @@ public class EmployerControlller {
 	
 	@RequestMapping(value = "/employer/resume/advance", method = RequestMethod.GET)
 	public String employerResumeAdvance(ModelMap model) {
-		List<JobType> categories = seekerService.findAll();
-		JobFilter jobFilter = new JobFilter(null, categories, "");
-		model.addAttribute("jobFilter", jobFilter);
+		//List<SeekerProfile> seekers = seekerService.findAll();
+		SearchFilter<SeekerProfile> seekerFilter = new SearchFilter<SeekerProfile>("", "");
+		model.addAttribute("seekerFilter", seekerFilter);
 
-		List<JobPost> foundJobs = seekerService.findAll();
-		model.addAttribute("foundJobs", foundJobs);
+		List<SeekerProfile> foundSeekers = seekerService.findAll();
+		model.addAttribute("foundSeekers", foundSeekers);
 
 		return "employer_resume_advance";
 	}
 
 	@RequestMapping(value = "/employer/resume/advance", method = RequestMethod.POST)
-	public String employerResumeAdvance(@Valid @ModelAttribute("jobFilter") JobFilter jobFilter, BindingResult result,
+	public String employerResumeAdvance(@Valid @ModelAttribute("jobFilter") SearchFilter<SeekerProfile> seekerFilter, BindingResult result,
 			ModelMap model) {
-		List<JobPost> foundJobs = jobPostService.searchBy(jobFilter.getKeyword(), jobFilter.getLocation());
-		model.addAttribute("jobFilter", jobFilter);
-		System.out.println("Selected categories" + jobFilter.getChosenCategories());
-		model.addAttribute("foundJobs", foundJobs);
+		List<SeekerProfile> foundSeekers = seekerService.searchBy(seekerFilter.getKeyword(), seekerFilter.getLocation());
+		model.addAttribute("jobFilter", seekerFilter);
+		model.addAttribute("foundJobs", foundSeekers);
 		return "employer_resume_advance";
 	}
-	@RequestMapping("/employer/resume/search")
-	public String employerResumeSearch(){
+	
+	@RequestMapping("/employer/resume/search/{id}")
+	public String employerResumeSearch(@PathVariable("id") int seekerId, ModelMap model){
+		SeekerProfile seeker = seekerService.findById(seekerId);
+		model.addAttribute("seeker", seeker);
 		return "employer_resume_search";
 	}
 }

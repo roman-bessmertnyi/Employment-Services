@@ -2,6 +2,7 @@ package com.romanbessmertnyi.employmentservices.dao;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
+import java.util.Date;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

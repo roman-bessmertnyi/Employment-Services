@@ -18,7 +18,7 @@ public class SeekerProfile {
 	@Id
 	@NotNull
 	@Column(name = "user_account_id", nullable = false)
-	private int user_account_id;
+	private int userAccountId;
 
 	@NotEmpty
 	@Column(name = "first_name", nullable = false)
@@ -57,12 +57,12 @@ public class SeekerProfile {
 	@OneToMany(mappedBy = "seeker_profile")
 	private List<SeekerSkillSet> seeker_skills;
 
-	public int getUser_account_id() {
-		return user_account_id;
+	public int getUserAccountId() {
+		return userAccountId;
 	}
 
-	public void setUser_account_id(int user_account_id) {
-		this.user_account_id = user_account_id;
+	public void setUserAccountId(int user_account_id) {
+		this.userAccountId = user_account_id;
 	}
 
 	public String getFirst_name() {

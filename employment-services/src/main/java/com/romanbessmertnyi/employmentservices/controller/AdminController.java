@@ -1,8 +1,5 @@
 package com.romanbessmertnyi.employmentservices.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,8 +8,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.romanbessmertnyi.employmentservices.model.JobPost;
-import com.romanbessmertnyi.employmentservices.service.JobPostService;
 import com.romanbessmertnyi.employmentservices.service.UserAccountService;
 
 @Controller

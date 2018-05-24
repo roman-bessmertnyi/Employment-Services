@@ -82,5 +82,10 @@ public class EducationDetailId implements Serializable {
 			return false;
 		return true;
 	}
+
+	public EducationDetailId() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 }

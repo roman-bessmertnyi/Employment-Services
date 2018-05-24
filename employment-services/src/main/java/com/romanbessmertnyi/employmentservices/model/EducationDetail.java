@@ -8,8 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="education_detail")
@@ -22,10 +26,14 @@ public class EducationDetail {
     @Column(name="institute_university_name", nullable=false)
     private String institute_university_name;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Temporal(TemporalType.DATE)
 	@NotNull
     @Column(name="starting_date", nullable=false)
     private Date starting_date;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Temporal(TemporalType.DATE)
     @Column(name="completion_date")
     private Date completion_date;
     

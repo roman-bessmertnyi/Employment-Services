@@ -114,7 +114,7 @@
 						placeholder="Keyword: name, skills, or tags">
 				</div>
 
-				<div class="form-group col-xs-12 col-sm-4">
+				<!-- <div class="form-group col-xs-12 col-sm-4">
 					<input type="text" class="form-control"
 						placeholder="Location: city, state or zip">
 				</div>
@@ -224,7 +224,7 @@
 						<label for="sortby5">Lowest degree first</label>
 					</div>
 
-				</div>
+				</div> -->
 
 
 			</div>
@@ -251,189 +251,62 @@
 			<div class="col-xs-12">
 				<br>
 				<h5>
-					We found <strong>357</strong> matches, you're watching <i>10</i> to
-					<i>20</i>
+					<c:if test="${foundSeekers.size() != 0}">
+						We found <strong>${foundSeekers.size()}</strong> matches
+					</c:if>
+					<c:if test="${foundSeekers.size() == 0}">
+						Sorry, no matches found
+					</c:if>
 				</h5>
 			</div>
-
-			<!-- Resume detail -->
-			<div class="col-xs-12">
-				<a class="item-block" href="resume-detail.html"> <header>
-					<img class="resume-avatar" src="../../../resources/img/avatar.jpg"
-						alt="">
-					<div class="hgroup">
-						<h4>John Doe</h4>
-						<h5>Front-end developer</h5>
-					</div>
-					</header>
-
-					<div class="item-body">
-						<p>20+ years of experience working on front-end development
-							for major companies. I develop well-designed, accessible, and
-							standards-based web sites and applications. Highly effective
-							communicator and team leader with a proven track record of
-							delivering quality work on time and within budget working as a
-							remote employee. Experience and success in both agency and major
-							corporate environments.</p>
-
-						<div class="tag-list">
-							<span>HTML5</span> <span>CSS3</span> <span>Bootstrap</span> <span>Wordpress</span>
-						</div>
-					</div> <footer>
-					<ul class="details cols-3">
-						<li><i class="fa fa-map-marker"></i> <span>Menlo Park,
-								CA</span></li>
-
-						<li><i class="fa fa-money"></i> <span>$55 / hour</span></li>
-
-						<li><i class="fa fa-certificate"></i> <span>Master of
-								Computer Science</span></li>
-					</ul>
-					</footer>
-				</a>
-			</div>
-			<!-- END Resume detail -->
 		</div>
 
 		<div class="row">
-			<!-- Resume detail -->
-			<div class="col-sm-12 col-md-6">
-				<a class="item-block" href="resume-detail.html"> <header>
-					<img class="resume-avatar" src="../../../resources/img/avatar-1.jpg"
-						alt="">
-					<div class="hgroup">
-						<h4>Bikesh Soltanian</h4>
-						<h5>Java developer</h5>
-					</div>
-					</header>
-
-					<div class="item-body">
-						<p>I develop well-designed, accessible, and standards-based
-							web sites and applications. Highly effective communicator and
-							team leader with a proven track record of delivering quality work
-							on time and within budget working as a remote employee.</p>
-
-						<div class="tag-list">
-							<span>J2EE</span> <span>J2SE</span> <span>Android</span>
+			<c:forEach items="${foundSeekers}" var="seeker">
+				<!-- Resume detail -->
+				<div class="col-sm-12 col-md-6">
+					<a class="item-block" href="/employer/resume/search/${seeker.user_account_id}">
+						<header> <c:if
+							test="${seeker.user_account.user_image != null}">
+							<img class="resume-avatar"
+								src="../../resources/img/${seeker.user_account.user_image}"
+								alt="">
+						</c:if>
+						<div class="hgroup">
+							<h4>${seeker.first_name}${" "}${seeker.last_name}</h4>
+							<h5>${seeker.headline}</h5>
 						</div>
-					</div> <footer>
-					<ul class="details cols-2">
-						<li><i class="fa fa-map-marker"></i> <span>Fairfield,
-								IA</span></li>
+						</header>
 
-						<li><i class="fa fa-money"></i> <span>$60 / hour</span></li>
-					</ul>
-					</footer>
-				</a>
-			</div>
-			<!-- END Resume detail -->
+						<div class="item-body">
+							<p>${seeker.description}</p>
 
+							<!-- <div class="tag-list">
+								<span>J2EE</span> <span>J2SE</span> <span>Android</span>
+							</div> -->
+						</div> <footer>
+						<ul class="details cols-2">
+							<!-- <li><i class="fa fa-map-marker"></i> <span>Fairfield,
+									IA</span></li> -->
 
-			<!-- Resume detail -->
-			<div class="col-sm-12 col-md-6">
-				<a class="item-block" href="resume-detail.html"> <header>
-					<img class="resume-avatar" src="../../../resources/img/avatar-2.jpg"
-						alt="">
-					<div class="hgroup">
-						<h4>Chris Hernandeziyan</h4>
-						<h5>.Net developer</h5>
-					</div>
-					</header>
-
-					<div class="item-body">
-						<p>I develop well-designed, accessible, and standards-based
-							web sites and applications. Highly effective communicator and
-							team leader with a proven track record of delivering quality work
-							on time and within budget working as a remote employee.</p>
-
-						<div class="tag-list">
-							<span>VB.Net</span> <span>C#</span> <span>WPF</span> <span>ASP.Net</span>
-							<span>MVC.Net</span>
-						</div>
-					</div> <footer>
-					<ul class="details cols-2">
-						<li><i class="fa fa-map-marker"></i> <span>Seattle, WA</span>
-						</li>
-
-						<li><i class="fa fa-money"></i> <span>$50 / hour</span></li>
-					</ul>
-					</footer>
-				</a>
-			</div>
-			<!-- END Resume detail -->
-		</div>
-
-		<div class="row">
-			<!-- Resume detail -->
-			<div class="col-sm-12 col-md-6">
-				<a class="item-block" href="resume-detail.html"> <header>
-					<img class="resume-avatar" src="../../../resources/img/avatar-3.jpg"
-						alt="">
-					<div class="hgroup">
-						<h4>Mary Amiri</h4>
-						<h5>Quality assurance</h5>
-					</div>
-					</header>
-
-					<div class="item-body">
-						<p>I develop well-designed, accessible, and standards-based
-							web sites and applications. Highly effective communicator and
-							team leader with a proven track record of delivering quality work
-							on time and within budget working as a remote employee.</p>
-
-						<div class="tag-list">
-							<span>Testcase</span> <span>Unit test</span> <span>jUnit</span> <span>Git</span>
-						</div>
-					</div> <footer>
-					<ul class="details cols-2">
-						<li><i class="fa fa-map-marker"></i> <span>Fremont, CA</span>
-						</li>
-
-						<li><i class="fa fa-money"></i> <span>$70 / hour</span></li>
-					</ul>
-					</footer>
-				</a>
-			</div>
-			<!-- END Resume detail -->
-
-
-
-			<!-- Resume detail -->
-			<div class="col-sm-12 col-md-6">
-				<a class="item-block" href="resume-detail.html"> <header>
-					<img class="resume-avatar" src="../../../resources/img/avatar-4.jpg"
-						alt="">
-					<div class="hgroup">
-						<h4>Sarah Luizgarden</h4>
-						<h5>UI/UX developer</h5>
-					</div>
-					</header>
-
-					<div class="item-body">
-						<p>I develop well-designed, accessible, and standards-based
-							web sites and applications. Highly effective communicator and
-							team leader with a proven track record of delivering quality work
-							on time and within budget working as a remote employee.</p>
-
-						<div class="tag-list">
-							<span>HTML5</span> <span>CSS3</span> <span>Bootstrap</span> <span>Photoshop</span>
-						</div>
-					</div> <footer>
-					<ul class="details cols-2">
-						<li><i class="fa fa-map-marker"></i> <span>Columbus,
-								OH</span></li>
-
-						<li><i class="fa fa-money"></i> <span>$45 / hour</span></li>
-					</ul>
-					</footer>
-				</a>
-			</div>
-			<!-- END Resume detail -->
+							<li><i class="fa fa-money"></i> <span>${seeker.current_salary}
+									${seeker.currency}/ <c:if test="${seeker.is_annually_monthly}">
+										hour
+									</c:if> <c:if test="${!seeker.is_annually_monthly}">
+										month
+									</c:if>
+							</span></li>
+						</ul>
+						</footer>
+					</a>
+				</div>
+				<!-- END Resume detail -->
+			</c:forEach>
 		</div>
 
 
 		<!-- Page navigation -->
-		<nav class="text-center">
+		<!-- <nav class="text-center">
 		<ul class="pagination">
 			<li><a href="#" aria-label="Previous"> <i
 					class="ti-angle-left"></i>
@@ -445,7 +318,7 @@
 			<li><a href="#" aria-label="Next"> <i class="ti-angle-right"></i>
 			</a></li>
 		</ul>
-		</nav>
+		</nav> -->
 		<!-- END Page navigation -->
 
 

@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.romanbessmertnyi.employmentservices.filters.SearchFilter;
 import com.romanbessmertnyi.employmentservices.model.EducationDetail;
-import com.romanbessmertnyi.employmentservices.model.JobFilter;
 import com.romanbessmertnyi.employmentservices.model.JobPost;
 import com.romanbessmertnyi.employmentservices.model.JobType;
 import com.romanbessmertnyi.employmentservices.model.SeekerProfile;
@@ -37,8 +37,7 @@ public class UserController {
 
 	@RequestMapping(value = "/user/jobs/advance", method = RequestMethod.GET)
 	public String userJobsAdvance(ModelMap model) {
-		List<JobType> categories = jobTypeService.findAll();
-		JobFilter jobFilter = new JobFilter(null, categories, "");
+		SearchFilter<JobType> jobFilter = new SearchFilter<JobType>(null, null);
 		model.addAttribute("jobFilter", jobFilter);
 
 		List<JobPost> foundJobs = jobPostService.findAll();
@@ -48,11 +47,10 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/user/jobs/advance", method = RequestMethod.POST)
-	public String findJobs(@Valid @ModelAttribute("jobFilter") JobFilter jobFilter, BindingResult result,
+	public String findJobs(@Valid @ModelAttribute("jobFilter") SearchFilter<JobType> jobFilter, BindingResult result,
 			ModelMap model) {
 		List<JobPost> foundJobs = jobPostService.searchBy(jobFilter.getKeyword(), jobFilter.getLocation());
 		model.addAttribute("jobFilter", jobFilter);
-		System.out.println("Selected categories" + jobFilter.getChosenCategories());
 		model.addAttribute("foundJobs", foundJobs);
 		return "user_jobs_advance";
 	}

@@ -1,6 +1,5 @@
 package com.romanbessmertnyi.employmentservices.model;
 
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -46,7 +45,7 @@ public class UserAccount {
     private String contact_number;
 	
     @Column(name="user_image", nullable=false)
-    private byte[] user_image;
+    private String user_image;
 	
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @NotNull
@@ -123,11 +122,11 @@ public class UserAccount {
 		this.contact_number = contact_number;
 	}
 
-	public byte[] getUser_image() {
+	public String getUser_image() {
 		return user_image;
 	}
 
-	public void setUser_image(byte[] user_image) {
+	public void setUser_image(String user_image) {
 		this.user_image = user_image;
 	}
 
@@ -199,7 +198,7 @@ public class UserAccount {
 	public String toString() {
 		return "UserAccount [id=" + id + ", email=" + email + ", password=" + password + ", userType=" + user_type
 				+ ", date_of_birth=" + date_of_birth + ", contact_number=" + contact_number + ", user_image="
-				+ Arrays.toString(user_image) + ", registration_date=" + registration_date + ", enabled=" + enabled
+				+ user_image + ", registration_date=" + registration_date + ", enabled=" + enabled
 				+ ", gender=" + gender + ", sms_notification_active=" + sms_notification_active
 				+ ", email_notification_active=" + email_notification_active + "]";
 	}
