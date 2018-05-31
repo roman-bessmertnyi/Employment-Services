@@ -5,6 +5,10 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @SuppressWarnings("serial")
 @Embeddable
@@ -13,9 +17,13 @@ public class ExperienceDetailId implements Serializable {
     @Column(name="user_account_id", nullable=false)
     private int user_account_id;
 	
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Temporal(TemporalType.DATE)
     @Column(name="start_date", nullable=false)
     private Date start_date;
 	
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Temporal(TemporalType.DATE)
     @Column(name="end_date", nullable=false)
     private Date end_date;
 
@@ -28,6 +36,11 @@ public class ExperienceDetailId implements Serializable {
 
 	public int getUser_account_id() {
 		return user_account_id;
+	}
+
+	public ExperienceDetailId() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	public void setUser_account_id(int user_account_id) {

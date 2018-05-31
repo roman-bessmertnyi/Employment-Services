@@ -265,7 +265,7 @@
 			<c:forEach items="${foundSeekers}" var="seeker">
 				<!-- Resume detail -->
 				<div class="col-sm-12 col-md-6">
-					<a class="item-block" href="/employer/resume/search/${seeker.user_account_id}">
+					<a class="item-block" href="/employer/resume/search/${seeker.userAccountId}">
 						<header> <c:if
 							test="${seeker.user_account.user_image != null}">
 							<img class="resume-avatar"

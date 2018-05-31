@@ -53,11 +53,11 @@ public class JobPost {
 
 	@NotNull
 	@Column(name = "is_company_name_hidden", nullable = false)
-	private boolean isCompanyNameHidden;
+	private boolean companyNameHidden;
 
 	@NotNull
 	@Column(name = "created_date", nullable = false)
-	@DateTimeFormat(pattern = "dd/MM/yyyy") // This is for bind Date with @ModelAttribute
+	@DateTimeFormat(pattern = "yyyy-MM-dd") // This is for bind Date with @ModelAttribute
 	@Temporal(TemporalType.DATE)
 	private Date createdDate;
 
@@ -67,92 +67,114 @@ public class JobPost {
 
 	@NotNull
 	@Column(name = "is_active", nullable = false)
-	private boolean isActive;
-
+	private boolean active;
+	
+	
 	public int getId() {
 		return id;
 	}
+
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
+
 	public List<JobPostActivity> getJob_post_activities() {
 		return job_post_activities;
 	}
+
 
 	public void setJob_post_activities(List<JobPostActivity> job_post_activities) {
 		this.job_post_activities = job_post_activities;
 	}
 
+
 	public JobLocation getJobLocation() {
 		return jobLocation;
 	}
+
 
 	public void setJobLocation(JobLocation jobLocation) {
 		this.jobLocation = jobLocation;
 	}
 
+
 	public JobType getJobType() {
 		return jobType;
 	}
+
 
 	public void setJobType(JobType jobType) {
 		this.jobType = jobType;
 	}
 
+
 	public UserAccount getPostedBy() {
 		return postedBy;
 	}
+
 
 	public void setPostedBy(UserAccount postedBy) {
 		this.postedBy = postedBy;
 	}
 
+
 	public Company getCompany() {
 		return company;
 	}
+
 
 	public void setCompany(Company company) {
 		this.company = company;
 	}
 
+
 	public boolean isCompanyNameHidden() {
-		return isCompanyNameHidden;
+		return companyNameHidden;
 	}
 
+
 	public void setCompanyNameHidden(boolean isCompanyNameHidden) {
-		this.isCompanyNameHidden = isCompanyNameHidden;
+		this.companyNameHidden = isCompanyNameHidden;
 	}
+
 
 	public Date getCreatedDate() {
 		return createdDate;
 	}
 
+
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
 	}
+
 
 	public String getJobDescription() {
 		return jobDescription;
 	}
 
+
 	public void setJobDescription(String jobDescription) {
 		this.jobDescription = jobDescription;
 	}
 
+
 	public boolean isActive() {
-		return isActive;
+		return active;
 	}
 
+
 	public void setActive(boolean isActive) {
-		this.isActive = isActive;
+		this.active = isActive;
 	}
+
 
 	@Override
 	public String toString() {
-		return "JobPost [id=" + id + ", isCompanyNameHidden=" + isCompanyNameHidden + ", createdDate=" + createdDate
-				+ ", jobDescription=" + jobDescription + ", isActive=" + isActive + "]";
+		return "JobPost [id=" + id + ", isCompanyNameHidden=" + companyNameHidden + ", createdDate=" + createdDate
+				+ ", jobDescription=" + jobDescription + ", isActive=" + active + "]";
 	}
+
 
 }

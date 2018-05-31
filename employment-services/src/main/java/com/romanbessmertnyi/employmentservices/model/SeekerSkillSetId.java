@@ -37,6 +37,11 @@ public class SeekerSkillSetId implements Serializable {
 		this.skill_set_id = skill_set_id;
 	}
 
+	public SeekerSkillSetId() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

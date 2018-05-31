@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,7 +24,7 @@ public class BusisnessStream {
     @Column(name="business_stream_name", nullable=false)
     private String business_stream_name;
 	
-	@OneToMany(mappedBy = "busisness_stream")
+	@OneToMany(mappedBy = "busisness_stream", fetch =FetchType.EAGER)
     private List<Company> companies;
 
 	public int getId() {
@@ -53,6 +54,6 @@ public class BusisnessStream {
 	@Override
 	public String toString() {
 		return "BusisnessStream [id=" + id + ", business_stream_name=" + business_stream_name + ", companies="
-				+ companies + "]";
+				+ companies.size() + "]";
 	}
 }

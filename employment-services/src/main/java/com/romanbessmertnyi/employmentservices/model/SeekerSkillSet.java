@@ -26,4 +26,42 @@ public class SeekerSkillSet {
 	@OneToOne()
 	@JoinColumn(name="skill_set_id", insertable=false, updatable=false)
     private SkillSet skill_set;
+
+	public SeekerSkillSetId getSeekerSkillSetId() {
+		return seekerSkillSetId;
+	}
+
+	public void setSeekerSkillSetId(SeekerSkillSetId seekerSkillSetId) {
+		this.seekerSkillSetId = seekerSkillSetId;
+	}
+
+	public int getSkill_level() {
+		return skill_level;
+	}
+
+	public void setSkill_level(int skill_level) {
+		this.skill_level = skill_level;
+	}
+
+	public SeekerProfile getSeeker_profile() {
+		return seeker_profile;
+	}
+
+	public void setSeeker_profile(SeekerProfile seeker_profile) {
+		this.seeker_profile = seeker_profile;
+	}
+
+	public SkillSet getSkill_set() {
+		return skill_set;
+	}
+
+	public void setSkill_set(SkillSet skill_set) {
+		this.skill_set = skill_set;
+	}
+
+	@Override
+	public String toString() {
+		return "SeekerSkillSet [seekerSkillSetId=" + seekerSkillSetId + ", skill_level=" + skill_level
+				+ ", seeker_profile=" + seeker_profile + ", skill_set=" + skill_set + "]";
+	}
 }

@@ -273,60 +273,7 @@
 			</header>
 
 			<div class="row">
-
-				<!-- <div class="col-xs-12">
-					<div class="item-block">
-						<div class="item-form">
-
-							<button class="btn btn-danger btn-float btn-remove">
-								<i class="ti-close"></i>
-							</button>
-
-							<div class="row">
-								<div class="col-xs-12 col-sm-4">
-									<div class="form-group">
-										<input type="file" class="dropify"
-											data-default-file="../resources/img/logo-default.png">
-										<span class="help-block">Please choose a square logo</span>
-									</div>
-								</div>
-
-								<div class="col-xs-12 col-sm-8">
-									<div class="form-group">
-										<input type="text" class="form-control"
-											placeholder="Degree, e.g. Bachelor">
-									</div>
-
-									<div class="form-group">
-										<input type="text" class="form-control"
-											placeholder="Major, e.g. Computer Science">
-									</div>
-									<div class="form-group">
-										<input type="text" class="form-control"
-											placeholder="School name, e.g. Massachusetts Institute of Technology">
-									</div>
-
-									<div class="form-group">
-										<div class="input-group">
-											<span class="input-group-addon">Date from</span> <input
-												type="text" class="form-control" placeholder="e.g. 2012">
-											<span class="input-group-addon">Date to</span> <input
-												type="text" class="form-control" placeholder="e.g. 2016">
-										</div>
-									</div>
-
-									<div class="form-group">
-										<textarea class="form-control" rows="3"
-											placeholder="Short description"></textarea>
-									</div>
-								</div>
-							</div>
-
-						</div>
-					</div>
-				</div> -->
-
-
+			
 				<c:forEach items="${seeker_profile.education_details}" varStatus="status">
 					<div class="col-xs-12 duplicateable-content">
 						<div class="item-block">

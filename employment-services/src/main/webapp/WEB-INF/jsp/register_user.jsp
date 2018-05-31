@@ -73,7 +73,7 @@
 	<%@ page import="java.util.Date"%>
 	<%@ page import="java.text.SimpleDateFormat"%>
 
-	<main>
+	<main>c
 
 	<div class="login-block">
 		<img src="../resources/img/logo.png" alt="">

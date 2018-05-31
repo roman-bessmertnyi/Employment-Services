@@ -1,9 +1,0 @@
-register dropbar
-
-user home
-
-employer home
-
-login name in the corner
-
-fix main home

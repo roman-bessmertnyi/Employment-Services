@@ -119,8 +119,8 @@ public class Company {
 	@Override
 	public String toString() {
 		return "Company [id=" + id + ", company_name=" + company_name + ", profile_description=" + profile_description
-				+ ", busisness_stream=" + busisness_stream + ", company_images=" + company_images + ", job_posts="
-				+ job_posts + ", establishment_date=" + establishment_date + ", company_website_url="
+				+ ", busisness_stream=" + busisness_stream + ", company_images=" + company_images.size() + ", job_posts="
+				+ job_posts.size() + ", establishment_date=" + establishment_date + ", company_website_url="
 				+ company_website_url + "]";
 	}
 }

@@ -2,6 +2,8 @@ package com.romanbessmertnyi.employmentservices.service;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,5 +29,9 @@ public class JobPostService {
 
 	public JobPost findById(int id) {
 		return dao.findById(id).orElseThrow(() -> new RuntimeException("Target not found"));
+	}
+
+	public void save(@Valid JobPost job) {
+		dao.save(job);
 	}
 }
