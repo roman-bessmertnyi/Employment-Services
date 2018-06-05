@@ -51,46 +51,7 @@
 			<hr>
 			<p class="lead">${company.profile_description}</p>
 
-			<!-- <ul class="details cols-3">
-            <li>
-              <i class="fa fa-map-marker"></i>
-              <span>Menlo Park, CA</span>
-            </li>
-
-            <li>
-              <i class="fa fa-globe"></i>
-              <a href="#">Google.com</a>
-            </li>
-
-            <li>
-              <i class="fa fa-users"></i>
-              <span>50,000 - 70,000 employer</span>
-            </li>
-
-            <li>
-              <i class="fa fa-birthday-cake"></i>
-              <span>From 1998</span>
-            </li>
-
-            <li>
-              <i class="fa fa-phone"></i>
-              <span>(+1) 123 456 7890</span>
-            </li>
-
-            <li>
-              <i class="fa fa-envelope"></i>
-              <a href="#">info@google.com</a>
-            </li>
-          </ul> -->
-
 			<div class="button-group">
-				<!-- <ul class="social-icons">
-              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-              <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-              <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
-            </ul> -->
 
 				<div class="action-buttons">
 					<a class="btn btn-gray" href="#">Favorite</a> <a
@@ -105,19 +66,8 @@
 
 
 	<!-- Main container -->
-	<main> <!-- Company detail --> <!-- <section>
-	<div class="container">
-
-		<header class="section-header"> <span>About</span>
-		<h2>Company detail</h2>
-		</header>
-
-		<p>///</p>
-		<p>///</p>
-
-	</div>
-	</section> --> <!-- END Company detail --> <!-- Open positions --> <section
-		id="open-positions" class="bg-alt">
+	<main> <!-- Open positions --> <section id="open-positions"
+		class="bg-alt">
 	<div class="container">
 		<header class="section-header"> <span>vacancies</span>
 		<h2>Open positions</h2>
@@ -127,7 +77,7 @@
 			<c:forEach items="${foundJobs}" var="job">
 				<!-- Job item -->
 				<div class="col-xs-12">
-					<a class="item-block" href="/user/jobs/search/${job.id}"> <header>
+					<a class="item-block" href="/jobs/${job.id}"> <header>
 						<c:if test="${job.company.company_images.size() != 0}">
 							<img
 								src="../../resources/img/${job.company.company_images.get(0).company_image}"

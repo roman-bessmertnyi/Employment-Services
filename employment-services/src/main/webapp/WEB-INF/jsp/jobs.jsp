@@ -144,12 +144,6 @@
 						<ul class="details cols-3">
 							<li><i class="fa fa-map-marker"></i> <span>${job.jobLocation.street_adress},
 									${job.jobLocation.city}</span></li>
-
-							<!-- <li><i class="fa fa-money"></i> <span>$90,000 -
-									$110,000 / year</span></li>
-
-							<li><i class="fa fa-certificate"></i> <span>Master or
-									Bachelor</span></li> -->
 						</ul>
 						</footer>
 					</a>

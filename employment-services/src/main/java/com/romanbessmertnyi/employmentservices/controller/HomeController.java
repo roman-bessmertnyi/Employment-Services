@@ -35,9 +35,6 @@ public class HomeController {
 	@Autowired
 	UserAccountService userAccountService;
 	
-	@Autowired
-	CompanyService companyService;
-
 	
 	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
 	public String home(ModelMap model) {
@@ -101,24 +98,6 @@ public class HomeController {
         model.addAttribute("user", getPrincipal());
         return "403";
     }
-	
-
-	@RequestMapping("/companies")
-	public String companySearch(ModelMap model) {
-		model.addAttribute("user", getPrincipal());
-		
-		List<Company> companies = companyService.findAll();
-		model.addAttribute("companies", companies);
-		return "companies";
-	}
-	
-	@RequestMapping("/companies/{id}")
-	public String companyDetail(@PathVariable("id") int companyId, ModelMap model) {
-		Company company = companyService.findById(companyId);
-		model.addAttribute("company", company);
-		model.addAttribute("foundJobs", company.getJob_posts());
-		return "company";
-	}
 	
 	private String getPrincipal(){
         String userName = null;

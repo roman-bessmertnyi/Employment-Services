@@ -47,9 +47,6 @@ public class EmployerControlller {
 	@Autowired
 	CompanyService companyService;
 	
-	@Autowired
-	UserAccountService userAccountService;
-	
 	@RequestMapping("/employer/home")
 	public String employerHome(ModelMap model){
 		SearchFilter<JobType> jobFilter = new SearchFilter<JobType>(null, null);
@@ -57,46 +54,6 @@ public class EmployerControlller {
 		model.addAttribute("role", "employer");
 		return "home";
 	}
-	
-	@RequestMapping("/employer/jobs/manage")
-	public String employerJobsManage(){
-		return "employer_jobs_manage";
-	}
-	
-	@RequestMapping(value = "/employer/jobs/post", method = RequestMethod.GET)
-	public String employerJobsPost(ModelMap model){
-		List<Company> companyList = companyService.findAll();
-		model.addAttribute("companyList", companyList);
-		List<JobType> jobTypeList = jobTypeService.findAll();
-		model.addAttribute("jobTypeList", jobTypeList);
-		JobPost job = new JobPost();
-		model.addAttribute("job", job);
-		int posterId = userAccountService.findByEmail(getPrincipal()).getId();
-		model.addAttribute("posterId", posterId);
-		return "employer_jobs_post";
-	}
-	
-	@RequestMapping(value = "/employer/jobs/post", method = RequestMethod.POST)
-    public String employerJobsPost(@Valid @ModelAttribute("job")JobPost job,
-            BindingResult result, ModelMap model) {
-        if (result.hasErrors()) {
-            System.out.println("There are errors");
-            for(ObjectError e: result.getAllErrors())
-            {
-            	System.out.println(e.getDefaultMessage());
-            }
-            return "employer_home";
-        }
-        jobLocationService.save(job.getJobLocation());
-        jobPostService.save(job);
-        
-        List<Company> companyList = companyService.findAll();
-		model.addAttribute("companyList", companyList);
-		List<JobType> jobTypeList = jobTypeService.findAll();
-		model.addAttribute("jobTypeList", jobTypeList);
-        
-        return "employer_jobs_post";
-    }
 	
 	@RequestMapping(value = "/employer/resume/advance", method = RequestMethod.GET)
 	public String employerResumeAdvance(ModelMap model) {
@@ -125,16 +82,4 @@ public class EmployerControlller {
 		model.addAttribute("seeker", seeker);
 		return "employer_resume_search";
 	}
-	
-	private String getPrincipal(){
-        String userName = null;
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
- 
-        if (principal instanceof UserDetails) {
-            userName = ((UserDetails)principal).getUsername();
-        } else {
-            userName = principal.toString();
-        }
-        return userName;
-    }
 }

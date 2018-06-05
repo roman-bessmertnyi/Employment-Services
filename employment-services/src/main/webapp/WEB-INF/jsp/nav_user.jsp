@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -43,8 +45,8 @@
 			<li><a href="/jobs">Browse jobs</a></li>
 			<li><a href="#">Resume</a>
 				<ul>
-					<li><a href="resumes/create">Browse resumes</a></li>
-					<li><a href="/resumes">Create a resume</a></li>
+					<li><a href="/resumes">Browse resumes</a></li>
+					<li><a href="/resumes/post">Post a resume</a></li>
 					<li><a href="/resumes/manage">Manage resumes</a></li>
 				</ul></li>
 			<li><a href="/companies">Browse companies</a></li>

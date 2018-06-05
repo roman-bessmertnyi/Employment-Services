@@ -8,10 +8,11 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.romanbessmertnyi.employmentservices.model.JobPost;
+import com.romanbessmertnyi.employmentservices.model.UserAccount;
 
 @Repository
 public interface JobPostDao extends JpaRepository<JobPost, Integer>{
-    public List<JobPost> findByJobType_JobTypeContainingOrJobDescriptionContaining(String key, String key2);
+    public List<JobPost> findByPostedBy(UserAccount postedBy);
     
     @Query("from JobPost jp "
     		+ "where "

@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.romanbessmertnyi.employmentservices.dao.JobPostDao;
 import com.romanbessmertnyi.employmentservices.model.JobPost;
+import com.romanbessmertnyi.employmentservices.model.UserAccount;
 
 @Service("jobPostService")
 @Transactional
@@ -22,6 +23,10 @@ public class JobPostService {
 		// key);
 		return dao.searchBy(key, loc);
 	}
+	
+	public List<JobPost> findByPostedBy(UserAccount postedBy){
+		return dao.findByPostedBy(postedBy);
+	}
 
 	public List<JobPost> findAll() {
 		return dao.findAll();
@@ -33,5 +38,9 @@ public class JobPostService {
 
 	public void save(@Valid JobPost job) {
 		dao.save(job);
+	}
+	
+	public void deleteById(int id) {
+		dao.deleteById(id);
 	}
 }
