@@ -33,7 +33,7 @@ public class AppAuthenticationSuccessHandler implements AuthenticationSuccessHan
 	protected void handle(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
 			throws IOException {
 
-		String targetUrl = determineTargetUrl(authentication);
+		String targetUrl = "/home";
 
 		if (response.isCommitted()) {
 			logger.debug("Response has already been committed. Unable to redirect to " + targetUrl);
@@ -49,13 +49,13 @@ public class AppAuthenticationSuccessHandler implements AuthenticationSuccessHan
 		boolean isEmployer = false;
 		Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 		for (GrantedAuthority grantedAuthority : authorities) {
-			if (grantedAuthority.getAuthority().equals("ROLE_user")) {
+			if (grantedAuthority.getAuthority().equals("ROLE_USER")) {
 				isUser = true;
 				break;
-			} else if (grantedAuthority.getAuthority().equals("ROLE_admin")) {
+			} else if (grantedAuthority.getAuthority().equals("ROLE_ADMIN")) {
 				isAdmin = true;
 				break;
-			} else if (grantedAuthority.getAuthority().equals("ROLE_employer")) {
+			} else if (grantedAuthority.getAuthority().equals("ROLE_EMPLOYER")) {
 				isEmployer = true;
 				break;
 			}

@@ -9,19 +9,12 @@
 </head>
 <body>
 	<c:if test="${pageContext.request.userPrincipal.name != null}">
-		<h2>Welcome, employer ${pageContext.request.userPrincipal.name}</h2>
+		<h2>Welcome, admin ${pageContext.request.userPrincipal.name}</h2>
 	</c:if>
+	<p>login search</p>
+	<p>login curd table</p>
 	<p>
-		<a href="/employer/jobs/manage">manage jobs and responses</a>
-	</p>
-	<p>
-		<a href="/employer/jobs/post">post a job</a>
-	</p>
-	<p>
-		<a href="/employer/resume/advance">detailed search</a>
-	</p>
-	<p>
-		<a href="/employer/resume/search">simple search</a>
+		<a href="/admin/home">go back</a>
 	</p>
 	<p>
 		<a href="/logout">log out</a>

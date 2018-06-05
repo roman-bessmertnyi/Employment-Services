@@ -1,5 +1,6 @@
 package com.romanbessmertnyi.employmentservices.controller;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,6 +9,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -20,7 +22,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.romanbessmertnyi.employmentservices.filters.SearchFilter;
 import com.romanbessmertnyi.employmentservices.model.Company;
+import com.romanbessmertnyi.employmentservices.model.JobType;
 import com.romanbessmertnyi.employmentservices.model.UserAccount;
 import com.romanbessmertnyi.employmentservices.service.CompanyService;
 import com.romanbessmertnyi.employmentservices.service.UserAccountService;
@@ -36,7 +40,10 @@ public class HomeController {
 
 	
 	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
-	public String home() {
+	public String home(ModelMap model) {
+		SearchFilter<JobType> jobFilter = new SearchFilter<JobType>(null, null);
+		model.addAttribute("jobFilter", jobFilter);
+		model.addAttribute("role", null);
 		return "home";
 	}
 
@@ -97,7 +104,7 @@ public class HomeController {
 	
 
 	@RequestMapping("/companies")
-	public String registerUser(ModelMap model) {
+	public String companySearch(ModelMap model) {
 		model.addAttribute("user", getPrincipal());
 		
 		List<Company> companies = companyService.findAll();
@@ -105,12 +112,12 @@ public class HomeController {
 		return "companies";
 	}
 	
-	@RequestMapping("/company/detail/{id}")
-	public String userJobsSearch(@PathVariable("id") int companyId, ModelMap model) {
+	@RequestMapping("/companies/{id}")
+	public String companyDetail(@PathVariable("id") int companyId, ModelMap model) {
 		Company company = companyService.findById(companyId);
 		model.addAttribute("company", company);
 		model.addAttribute("foundJobs", company.getJob_posts());
-		return "company_detail";
+		return "company";
 	}
 	
 	private String getPrincipal(){

@@ -62,50 +62,7 @@
 	<%@ page import="java.text.SimpleDateFormat"%>
 
 	<!-- Navigation bar -->
-	<nav class="navbar">
-	<div class="container">
-
-		<!-- Logo -->
-		<div class="pull-left">
-			<a class="navbar-toggle" href="#" data-toggle="offcanvas"><i
-				class="ti-menu"></i></a>
-
-			<div class="logo-wrapper">
-				<a class="logo" href="index-user.html"><img
-					src="../../resources/img/logo.png" alt="logo"></a> <a
-					class="logo-alt" href="index-user.html"><img
-					src="../../resources/img/logo-alt.png" alt="logo-alt"></a>
-			</div>
-
-		</div>
-		<!-- END Logo -->
-
-		<!-- User account -->
-		<div class="pull-right user-login">
-			<c:if test="${pageContext.request.userPrincipal.name != null}">
-				user ${pageContext.request.userPrincipal.name}  
-			</c:if>
-			<a class="btn btn-sm btn-primary" href="/logout">Logout</a>
-		</div>
-		<!-- END User account -->
-
-		<!-- Navigation menu -->
-		<ul class="nav-menu">
-			<li><a class="active" href="/user/home">Home</a></li>
-			<li><a href="/user/jobs/advance">Browse jobs</a></li>
-			<li><a href="#">Resume</a>
-				<ul>
-					<li><a href="resume-list-user.html">Browse resumes</a></li>
-					<li><a href="/user/resume">Create a resume</a></li>
-					<li><a href="/user/profile">Manage resumes</a></li>
-				</ul></li>
-			<li><a href="company-list-user.html">Browse companies</a></li>
-
-		</ul>
-		<!-- END Navigation menu -->
-
-	</div>
-	</nav>
+	<jsp:include page="user_nav.jsp" />
 	<!-- END Navigation bar -->
 
 
@@ -119,7 +76,7 @@
 	</div>
 
 	<div class="container">
-		<form:form method="POST" action="/user/jobs/advance"
+		<form:form method="POST" action="/user/jobs"
 			modelAttribute="jobFilter">
 
 			<div class="row">
@@ -133,129 +90,10 @@
 						placeholder="Location" />
 				</div>
 
-				<%-- <div class="form-group col-xs-12 col-sm-4">
-					<form:select path="chosenCategories"
-						class="form-control selectpicker" multiple="true">
-												<form:option selected value="-" label="none" />
-						<c:forEach items="${jobFilter.categories}" var="category"
-							varStatus="status">
-							<option>${category.jobType}</option>
-						</c:forEach>
-					</form:select>
-					<!-- <select class="form-control selectpicker" multiple>
-						<option selected>All categories</option>
-						<option>Developer</option>
-						<option>Designer</option>
-						<option>Customer service</option>
-						<option>Finance</option>
-						<option>Healthcare</option>
-						<option>Sale</option>
-						<option>Marketing</option>
-						<option>Information technology</option>
-						<option>Others</option>
-					</select> -->
-				</div> --%>
-
-
-				<!-- <div class="form-group col-xs-12 col-sm-4">
-					<h6>Contract</h6>
-					<div class="checkall-group">
-						<div class="checkbox">
-							<input type="checkbox" id="contract1" name="contract" checked>
-							<label for="contract1">All types</label>
-						</div>
-
-						<div class="checkbox">
-							<input type="checkbox" id="contract2" name="contract"> <label
-								for="contract2">Full-time <small>(354)</small></label>
-						</div>
-
-						<div class="checkbox">
-							<input type="checkbox" id="contract3" name="contract"> <label
-								for="contract3">Part-time <small>(284)</small></label>
-						</div>
-
-						<div class="checkbox">
-							<input type="checkbox" id="contract4" name="contract"> <label
-								for="contract4">Internship <small>(169)</small></label>
-						</div>
-
-						<div class="checkbox">
-							<input type="checkbox" id="contract5" name="contract"> <label
-								for="contract5">Freelance <small>(480)</small></label>
-						</div>
-					</div>
-				</div>
-
-
-				<div class="form-group col-xs-12 col-sm-4">
-					<h6>Hourly rate</h6>
-					<div class="checkall-group">
-						<div class="checkbox">
-							<input type="checkbox" id="rate1" name="rate" checked> <label
-								for="rate1">All rates</label>
-						</div>
-
-						<div class="checkbox">
-							<input type="checkbox" id="rate2" name="rate"> <label
-								for="rate2">$0 - $50 <small>(364)</small></label>
-						</div>
-
-						<div class="checkbox">
-							<input type="checkbox" id="rate3" name="rate"> <label
-								for="rate3">$50 - $100 <small>(684)</small></label>
-						</div>
-
-						<div class="checkbox">
-							<input type="checkbox" id="rate4" name="rate"> <label
-								for="rate4">$100 - $200 <small>(195)</small></label>
-						</div>
-
-						<div class="checkbox">
-							<input type="checkbox" id="rate5" name="rate"> <label
-								for="rate5">$200+ <small>(39)</small></label>
-						</div>
-					</div>
-				</div>
-
-
-				<div class="form-group col-xs-12 col-sm-4">
-					<h6>Academic degree</h6>
-					<div class="checkall-group">
-						<div class="checkbox">
-							<input type="checkbox" id="degree1" name="degree" checked>
-							<label for="degree1">All degrees</label>
-						</div>
-
-						<div class="checkbox">
-							<input type="checkbox" id="degree2" name="degree"> <label
-								for="degree2">Associate degree <small>(216)</small></label>
-						</div>
-
-						<div class="checkbox">
-							<input type="checkbox" id="degree3" name="degree"> <label
-								for="degree3">Bachelor's degree <small>(569)</small></label>
-						</div>
-
-						<div class="checkbox">
-							<input type="checkbox" id="degree4" name="degree"> <label
-								for="degree4">Master's degree <small>(439)</small></label>
-						</div>
-
-						<div class="checkbox">
-							<input type="checkbox" id="degree5" name="degree"> <label
-								for="degree5">Doctoral degree <small>(84)</small></label>
-						</div>
-					</div>
-				</div>
-
-			</div> -->
-
 				<div class="button-group">
 					<div class="action-buttons">
 						<input type="submit" value="Apply filter" class="btn btn-primary"
 							type="submit">
-						<!-- 					<button class="btn btn-primary">Apply filter</button> -->
 					</div>
 				</div>
 		</form:form>
@@ -286,7 +124,7 @@
 			<!-- Job item -->
 			<c:forEach items="${foundJobs}" var="job">
 				<div class="col-xs-12">
-					<a class="item-block" href="/user/jobs/search/${job.id}"> <header>
+					<a class="item-block" href="/user/jobs/${job.id}"> <header>
 						<c:if test="${job.company.company_images.size() != 0}">
 							<img
 								src="../../resources/img/${job.company.company_images.get(0).company_image}"
@@ -482,70 +320,7 @@
 
 
 	<!-- Site footer -->
-	<footer class="site-footer"> <!-- Top section -->
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12 col-md-6">
-				<h6>About</h6>
-				<p class="text-justify">An employment website is a web site that
-					deals specifically with employment or careers. Many employment
-					websites are designed to allow employers to post job requirements
-					for a position to be filled and are commonly known as job boards.
-					Other employment sites offer employer reviews, career and
-					job-search advice, and describe different job descriptions or
-					employers. Through a job website a prospective employee can locate
-					and fill out a job application.</p>
-			</div>
-
-			<div class="col-xs-6 col-md-3">
-				<h6>Company</h6>
-				<ul class="footer-links">
-					<li><a href="page-about.html">About us</a></li>
-					<li><a href="page-typography.html">How it works</a></li>
-					<li><a href="page-faq.html">Help center</a></li>
-					<li><a href="page-typography.html">Privacy policy</a></li>
-					<li><a href="page-contact.html">Contact us</a></li>
-				</ul>
-			</div>
-
-			<div class="col-xs-6 col-md-3">
-				<h6>Trendeing jobs</h6>
-				<ul class="footer-links">
-					<li><a href="job-list.html">Front-end developer</a></li>
-					<li><a href="job-list.html">Android developer</a></li>
-					<li><a href="job-list.html">iOS developer</a></li>
-					<li><a href="job-list.html">Full stack developer</a></li>
-					<li><a href="job-list.html">Project administrator</a></li>
-				</ul>
-			</div>
-		</div>
-
-		<hr>
-	</div>
-	<!-- END Top section --> <!-- Bottom section -->
-	<div class="container">
-		<div class="row">
-			<div class="col-md-8 col-sm-6 col-xs-12">
-				<p class="copyright-text">
-					Copyrights &copy; 2016 All Rights Reserved by <a
-						href="http://themeforest.net/user/shamsoft">ShaMSofT</a>.
-				</p>
-			</div>
-
-			<div class="col-md-4 col-sm-6 col-xs-12">
-				<ul class="social-icons">
-					<li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-					<li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-					<li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-					<li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-					<li><a class="instagram" href="#"><i
-							class="fa fa-instagram"></i></a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<!-- END Bottom section --> </footer>
-	<!-- END Site footer -->
+	<jsp:include page="footer.jsp" />
 
 
 	<!-- Back to top button -->

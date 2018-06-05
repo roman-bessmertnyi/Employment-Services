@@ -49,16 +49,15 @@
 			<h5 class="font-alt">Find your desire one in a minute</h5>
 			<br> <br> <br>
 
-			<form:form method="POST" action="/jobs" modelAttribute="jobFilter"
-				class="header-job-search">
+			<form:form method="POST" action="/jobs" modelAttribute="jobFilter" class="header-job-search">
 				<div class="input-keyword">
 					<form:input type="text" path="keyword" class="form-control"
-						placeholder="Enter a keyword" />
+							placeholder="Enter a keyword" />
 				</div>
 
 				<div class="input-location">
 					<form:input type="text" path="location" class="form-control"
-						placeholder="Location" />
+							placeholder="Location" />
 				</div>
 
 				<div class="btn-search">

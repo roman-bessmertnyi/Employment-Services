@@ -51,8 +51,11 @@ public class EmployerControlller {
 	UserAccountService userAccountService;
 	
 	@RequestMapping("/employer/home")
-	public String employerHome(){
-		return "employer_home";
+	public String employerHome(ModelMap model){
+		SearchFilter<JobType> jobFilter = new SearchFilter<JobType>(null, null);
+		model.addAttribute("jobFilter", jobFilter);
+		model.addAttribute("role", "employer");
+		return "home";
 	}
 	
 	@RequestMapping("/employer/jobs/manage")
