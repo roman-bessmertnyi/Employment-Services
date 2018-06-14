@@ -15,10 +15,7 @@ public interface SeekerDao extends JpaRepository<SeekerProfile, Integer> {
     		+ "where "
     		+ "(sp.first_name like %:key% "
     		+ "or sp.last_name like %:key% "
-    		+ "or sp.description like %:key% "
-    		+ "or institute_university_name in "
-    		+ "(select institute_university_name from EducationDetail ed "
-    		+ "where ed.institute_university_name like %:key% )) ")
+    		+ "or sp.description like %:key%) ")
 	List<SeekerProfile> searchBy(@Param("key")String key);
 
 }

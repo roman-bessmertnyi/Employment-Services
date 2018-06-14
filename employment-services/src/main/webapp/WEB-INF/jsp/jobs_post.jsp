@@ -91,8 +91,6 @@
 				<div class="form-group col-xs-12 col-sm-6">
 					<form:checkbox path="companyNameHidden" />
 					Hide Company name?
-					<b>location id = ${job.jobLocation.id}</b>
-					<b>id = ${job.id}</b>
 				</div>
 				<form:input type="hidden" path="active" value="true" />
 				

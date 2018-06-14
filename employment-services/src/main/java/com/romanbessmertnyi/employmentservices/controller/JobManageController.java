@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.romanbessmertnyi.employmentservices.model.Company;
-import com.romanbessmertnyi.employmentservices.model.JobLocation;
 import com.romanbessmertnyi.employmentservices.model.JobPost;
 import com.romanbessmertnyi.employmentservices.model.JobType;
 import com.romanbessmertnyi.employmentservices.model.UserAccount;
