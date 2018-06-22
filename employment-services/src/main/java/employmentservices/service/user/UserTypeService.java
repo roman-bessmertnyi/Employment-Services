@@ -20,7 +20,7 @@ public class UserTypeService {
     }
  
     public UserType findByType(String type){
-        return dao.findByName(type);
+        return dao.findByUserTypeName(type);
     }
  
     public UserType findById(int id) {

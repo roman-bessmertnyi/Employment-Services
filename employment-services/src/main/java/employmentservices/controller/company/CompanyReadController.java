@@ -27,7 +27,7 @@ public class CompanyReadController {
 	public String companyDetail(@PathVariable("id") int companyId, ModelMap model) {
 		Company company = companyService.findById(companyId);
 		model.addAttribute("company", company);
-		model.addAttribute("foundJobs", company.getJob_posts());
+		model.addAttribute("foundJobs", company.getJobPosts());
 		return "companies/company";
 	}
 }

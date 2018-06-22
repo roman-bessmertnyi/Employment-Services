@@ -1,4 +1,4 @@
-package employmentservices.model;
+package employmentservices.model.seeker;
 // Generated 22.06.2018 15:44:18 by Hibernate Tools 5.2.10.Final
 
 import javax.persistence.Column;
@@ -16,6 +16,10 @@ import javax.persistence.Table;
 @Table(name = "seeker_tag")
 public class SeekerTag implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2631044362280813427L;
 	private int id;
 	private SeekerProfile seekerProfile;
 	private String tagText;

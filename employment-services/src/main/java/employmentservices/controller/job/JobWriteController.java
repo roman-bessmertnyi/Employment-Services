@@ -22,7 +22,7 @@ import employmentservices.model.job.JobPost;
 import employmentservices.model.job.JobType;
 import employmentservices.model.user.UserAccount;
 import employmentservices.service.company.CompanyService;
-import employmentservices.service.job.JobLocationService;
+import employmentservices.service.job.LocationService;
 import employmentservices.service.job.JobPostService;
 import employmentservices.service.job.JobTypeService;
 import employmentservices.service.user.UserAccountService;
@@ -37,7 +37,7 @@ public class JobWriteController {
 	JobPostService jobPostService;
 
 	@Autowired
-	JobLocationService jobLocationService;
+	LocationService jobLocationService;
 
 	@Autowired
 	CompanyService companyService;
@@ -97,7 +97,7 @@ public class JobWriteController {
 			}
 			return "home";
 		}
-		jobLocationService.save(job.getJobLocation());
+		jobLocationService.save(job.getLocation());
 		jobPostService.save(job);
 
 		List<Company> companyList = companyService.findAll();

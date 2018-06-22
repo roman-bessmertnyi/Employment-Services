@@ -7,7 +7,7 @@ import employmentservices.model.user.UserType;
 
 @Repository
 public interface UserTypeDao extends JpaRepository<UserType, Integer> {
-	public UserType findByName(String type);
+	public UserType findByUserTypeName(String type);
 	
 	/*public List<UserType> findAll() {
 		CriteriaBuilder builder = getSession().getCriteriaBuilder();

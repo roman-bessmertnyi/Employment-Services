@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import employmentservices.filters.SearchFilter;
 import employmentservices.model.job.JobType;
 import employmentservices.service.company.CompanyService;
-import employmentservices.service.job.JobLocationService;
+import employmentservices.service.job.LocationService;
 import employmentservices.service.job.JobPostService;
 import employmentservices.service.job.JobTypeService;
 
@@ -25,7 +25,7 @@ public class EmployerControlller {
 	JobPostService jobPostService;
 	
 	@Autowired
-	JobLocationService jobLocationService;
+	LocationService jobLocationService;
 	
 	@Autowired
 	CompanyService companyService;

@@ -13,8 +13,8 @@ import employmentservices.model.seeker.SeekerProfile;
 public interface SeekerDao extends JpaRepository<SeekerProfile, Integer> {
 	@Query("from SeekerProfile sp "
     		+ "where "
-    		+ "(sp.first_name like %:key% "
-    		+ "or sp.last_name like %:key% "
+    		+ "(sp.firstName like %:key% "
+    		+ "or sp.lastName like %:key% "
     		+ "or sp.description like %:key%) ")
 	List<SeekerProfile> searchBy(@Param("key")String key);
 

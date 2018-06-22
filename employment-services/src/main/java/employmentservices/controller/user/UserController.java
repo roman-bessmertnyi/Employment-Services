@@ -1,6 +1,6 @@
 package employmentservices.controller.user;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,8 +34,8 @@ public class UserController {
 	public String userResume(ModelMap model) {
 		SeekerProfile seeker_profile = new SeekerProfile();
 		EducationDetail education_detail = new EducationDetail();
-		seeker_profile.setEducation_details(new ArrayList<EducationDetail>());
-		seeker_profile.getEducation_details().add(education_detail);
+		seeker_profile.setEducationDetails(new HashSet<EducationDetail>(0));
+		seeker_profile.getEducationDetails().add(education_detail);
 		model.addAttribute("seeker_profile", seeker_profile);
 		return "user_resume";
 	}

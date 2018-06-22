@@ -25,7 +25,7 @@ public class JobPostService {
 	}
 	
 	public List<JobPost> findByPostedBy(UserAccount postedBy){
-		return dao.findByPostedBy(postedBy);
+		return dao.findByUserAccount(postedBy);
 	}
 
 	public List<JobPost> findAll() {

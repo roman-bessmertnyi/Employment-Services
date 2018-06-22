@@ -8,24 +8,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import employmentservices.dao.job.JobLocationDao;
-import employmentservices.model.job.JobLocation;
+import employmentservices.dao.job.LocationDao;
+import employmentservices.model.job.Location;
 
 @Service("jobLocationService")
 @Transactional
-public class JobLocationService {
+public class LocationService {
 	@Autowired
-	private JobLocationDao dao;
+	private LocationDao dao;
 	
-	public List<JobLocation> findAll() {
+	public List<Location> findAll() {
 		return dao.findAll();
 	}
 
-	public JobLocation findById(int id) {
+	public Location findById(int id) {
 		return dao.findById(id).orElseThrow(() -> new RuntimeException("Target not found"));
 	}
 
-	public void save(@Valid JobLocation loc) {
+	public void save(@Valid Location loc) {
 		dao.save(loc);
 	}
 }

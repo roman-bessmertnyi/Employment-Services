@@ -73,7 +73,7 @@ public class HomeController {
         System.out.println("Email : "+user.getEmail());
         System.out.println("Password : "+user.getPassword());
         System.out.println("Type : "+user.getUserType());
-        System.out.println("Enabled : "+user.isEnabled());
+        System.out.println("Enabled : "+user.isIsActive());
         System.out.println("Checking UsrProfiles....");
          
         model.addAttribute("success", "User " + user.getEmail() + " has been registered successfully");

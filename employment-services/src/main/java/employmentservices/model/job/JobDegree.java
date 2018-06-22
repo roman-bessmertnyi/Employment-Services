@@ -1,4 +1,4 @@
-package employmentservices.model;
+package employmentservices.model.job;
 // Generated 22.06.2018 15:44:18 by Hibernate Tools 5.2.10.Final
 
 import java.util.HashSet;
@@ -17,6 +17,10 @@ import javax.persistence.Table;
 @Table(name = "job_degree")
 public class JobDegree implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2326717916045712165L;
 	private int id;
 	private String degreeName;
 	private Set<JobPost> jobPosts = new HashSet<JobPost>(0);

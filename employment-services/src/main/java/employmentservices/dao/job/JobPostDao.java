@@ -12,16 +12,16 @@ import employmentservices.model.user.UserAccount;
 
 @Repository
 public interface JobPostDao extends JpaRepository<JobPost, Integer>{
-    public List<JobPost> findByPostedBy(UserAccount postedBy);
+    public List<JobPost> findByUserAccount(UserAccount postedBy);
     
     @Query("from JobPost jp "
     		+ "where "
     		+ "(jp.jobType.jobType like %:key% "
-    		+ "or jp.jobDescription like %:key% "
-    		+ "or jp.company.company_name like %:key% "
-    		+ "or jp.company.profile_description like %:key%) "
+    		+ "or jp.description like %:key% "
+    		+ "or jp.company.companyName like %:key% "
+    		+ "or jp.company.description like %:key%) "
     		+ "and "
-    		+ "(jp.jobLocation.street_adress like %:loc% "
+    		+ "(jp.location.city like %:loc% "
     		+ ")")
     public List<JobPost> searchBy(@Param("key")String key, @Param("loc")String loc);
 }
