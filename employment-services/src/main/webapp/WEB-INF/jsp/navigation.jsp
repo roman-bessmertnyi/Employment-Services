@@ -14,15 +14,15 @@
 <body>
 	<!-- Navigation bar -->
 	<sec:authorize access="!hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_EMPLOYER')">
-    	<jsp:include page="nav_home.jsp" />
+    	<jsp:include page="navigation/nav_home.jsp" />
 	</sec:authorize>
 	
 	<sec:authorize access="hasRole('ROLE_USER')">
-    	<jsp:include page="nav_user.jsp" />
+    	<jsp:include page="navigation/nav_user.jsp" />
 	</sec:authorize>
 	
 	<sec:authorize access="hasRole('ROLE_EMPLOYER')">
-    	<jsp:include page="nav_employer.jsp" />
+    	<jsp:include page="navigation/nav_employer.jsp" />
 	</sec:authorize>
 	<!-- END Navigation bar -->
 </body>
