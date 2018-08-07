@@ -22,9 +22,9 @@ import employmentservices.model.job.JobPost;
 import employmentservices.model.job.JobType;
 import employmentservices.model.user.UserAccount;
 import employmentservices.service.company.CompanyService;
-import employmentservices.service.job.LocationService;
 import employmentservices.service.job.JobPostService;
 import employmentservices.service.job.JobTypeService;
+import employmentservices.service.job.LocationService;
 import employmentservices.service.user.UserAccountService;
 
 @Transactional
@@ -95,8 +95,9 @@ public class JobWriteController {
 			for (ObjectError e : result.getAllErrors()) {
 				System.out.println(e.getObjectName());
 			}
-			return "home";
+			return "redirect:/home";
 		}
+		
 		jobLocationService.save(job.getLocation());
 		jobPostService.save(job);
 

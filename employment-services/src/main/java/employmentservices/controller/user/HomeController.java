@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import employmentservices.filters.SearchFilter;
 import employmentservices.model.job.JobType;
 import employmentservices.model.user.UserAccount;
+import employmentservices.service.job.JobPostService;
 import employmentservices.service.user.UserAccountService;
 
 @Controller
@@ -27,9 +28,14 @@ public class HomeController {
 	@Autowired
 	UserAccountService userAccountService;
 	
+	@Autowired
+	JobPostService jobPostService;
+	
 	
 	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
 	public String home(ModelMap model) {
+		int jobAmount = jobPostService.findAll().size();
+		model.addAttribute("jobAmount", jobAmount);
 		SearchFilter<JobType> jobFilter = new SearchFilter<JobType>(null, null);
 		model.addAttribute("jobFilter", jobFilter);
 		return "home";
@@ -77,7 +83,7 @@ public class HomeController {
         System.out.println("Checking UsrProfiles....");
          
         model.addAttribute("success", "User " + user.getEmail() + " has been registered successfully");
-        return "home";
+        return "redirect:/home";
     }
 
 	@RequestMapping(value = "/403", method = RequestMethod.GET)

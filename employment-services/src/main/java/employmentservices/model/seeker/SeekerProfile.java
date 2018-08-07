@@ -3,13 +3,17 @@ package employmentservices.model.seeker;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import employmentservices.model.job.Location;
@@ -90,7 +94,8 @@ public class SeekerProfile implements java.io.Serializable {
 		this.seekerTags = seekerTags;
 	}
 
-	@Id
+	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seeker_profile_generator")
+	@SequenceGenerator(name = "seeker_profile_generator", sequenceName = "seeker_profile_id_seq")
 
 	@Column(name = "id", unique = true, nullable = false)
 	public int getId() {

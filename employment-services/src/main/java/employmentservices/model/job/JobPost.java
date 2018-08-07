@@ -4,16 +4,22 @@ package employmentservices.model.job;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import employmentservices.model.company.Company;
 import employmentservices.model.seeker.Currency;
@@ -102,7 +108,8 @@ public class JobPost implements java.io.Serializable {
 		this.jobPostActivities = jobPostActivities;
 	}
 
-	@Id
+	@Id @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "job_post_generator")
+	@SequenceGenerator(name="job_post_generator", sequenceName = "job_post_id_seq")
 
 	@Column(name = "id", unique = true, nullable = false)
 	public int getId() {
@@ -246,6 +253,7 @@ public class JobPost implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="dd.MM.yyyy")
 	@Column(name = "created_date", nullable = false, length = 13)
 	public Date getCreatedDate() {
 		return this.createdDate;

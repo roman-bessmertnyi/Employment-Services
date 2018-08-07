@@ -4,9 +4,12 @@ package employmentservices.model.seeker;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -33,7 +36,8 @@ public class SeekerTag implements java.io.Serializable {
 		this.tagText = tagText;
 	}
 
-	@Id
+	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seeker_tag_generator")
+	@SequenceGenerator(name = "seeker_tag_generator", sequenceName = "seeker_tag_id_seq")
 
 	@Column(name = "id", unique = true, nullable = false)
 	public int getId() {

@@ -68,37 +68,31 @@
 				</div>
 
 				<div class="form-group col-xs-12">
-					<form:textarea path="jobDescription" class="form-control" rows="5"
+					<form:textarea path="description" class="form-control" rows="5"
 						placeholder="Short description" />
 				</div>
 
 				<div class="form-group col-xs-12 col-sm-6 col-md-4">
 					<div class="input-group input-group-sm">
 						<span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-						<form:input type="text" path="jobLocation.street_adress"
-							class="form-control" placeholder="Street address" />
-						<form:input type="text" path="jobLocation.city"
+						<form:input type="text" path="location.city"
 							class="form-control" placeholder="City" />
-						<form:input type="text" path="jobLocation.state"
+						<form:input type="text" path="location.state"
 							class="form-control" placeholder="State" />
-						<form:input type="text" path="jobLocation.country"
-							class="form-control" placeholder="Country" />
-						<form:input type="text" path="jobLocation.zip"
-							class="form-control" placeholder="Zip" />
 					</div>
 				</div>
 
 				<div class="form-group col-xs-12 col-sm-6">
-					<form:checkbox path="companyNameHidden" />
+					<form:checkbox path="isCompanyNameHidden" />
 					Hide Company name?
 				</div>
-				<form:input type="hidden" path="active" value="true" />
+				<form:input type="hidden" path="isActive" value="true" />
 				
-				<form:input type="hidden" path="jobLocation.id" value="${job.jobLocation.id}" />
+				<form:input type="hidden" path="location.id" value="${job.location.id}" />
 				
 				<form:input type="hidden" path="id" value="${job.id}" />
 
-				<form:input type="hidden" path="postedBy" value="${posterId}" />
+				<form:input type="hidden" path="userAccount" value="${posterId}" />
 
 				<%
 					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

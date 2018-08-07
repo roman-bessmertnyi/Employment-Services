@@ -3,11 +3,15 @@ package employmentservices.model.company;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -39,7 +43,8 @@ public class BusinessStream implements java.io.Serializable {
 		this.companies = companies;
 	}
 
-	@Id
+	@Id @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "business_stream_generator")
+	@SequenceGenerator(name="business_stream_generator", sequenceName = "business_stream_id_seq")
 
 	@Column(name = "id", unique = true, nullable = false)
 	public int getId() {

@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import employmentservices.model.user.UserAccount;
 
 /**
@@ -76,6 +78,7 @@ public class JobPostActivity implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="dd.MM.yyyy")
 	@Column(name = "apply_date", nullable = false, length = 13)
 	public Date getApplyDate() {
 		return this.applyDate;

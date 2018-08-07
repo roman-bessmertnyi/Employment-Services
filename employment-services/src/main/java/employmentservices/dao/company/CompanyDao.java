@@ -7,5 +7,5 @@ import employmentservices.model.company.Company;
 
 @Repository
 public interface CompanyDao extends JpaRepository<Company, Integer> {
-
+	
 }

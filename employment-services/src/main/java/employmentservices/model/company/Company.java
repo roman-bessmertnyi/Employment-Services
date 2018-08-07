@@ -4,16 +4,22 @@ package employmentservices.model.company;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import employmentservices.model.job.JobPost;
 import employmentservices.model.job.Location;
@@ -42,7 +48,7 @@ public class Company implements java.io.Serializable {
 	private String email;
 	private String companyDetail;
 	private Set<JobPost> jobPosts = new HashSet<JobPost>(0);
-
+	
 	public Company() {
 	}
 
@@ -81,7 +87,8 @@ public class Company implements java.io.Serializable {
 		this.jobPosts = jobPosts;
 	}
 
-	@Id
+	@Id @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "company_generator")
+	@SequenceGenerator(name="company_generator", sequenceName = "company_id_seq")
 
 	@Column(name = "id", unique = true, nullable = false)
 	public int getId() {
@@ -159,6 +166,7 @@ public class Company implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="dd.MM.yyyy")
 	@Column(name = "establishment_date", nullable = false, length = 13)
 	public Date getEstablishmentDate() {
 		return this.establishmentDate;

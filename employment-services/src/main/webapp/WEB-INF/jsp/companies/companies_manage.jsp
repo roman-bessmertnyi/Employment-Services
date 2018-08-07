@@ -35,50 +35,57 @@
 
 
 	<!-- Page header -->
-    <header class="page-header bg-img size-lg" style="background-image: url(resources/img/bg-banner1.jpg)">
-      <div class="container no-shadow">
-        <h1 class="text-center">Manage companies</h1>
-        <p class="lead text-center">Here's the list of your registered companies. You can edit or delete them, or even add a new one.</p>
-      </div>
-    </header>
-    <!-- END Page header -->
+	<header class="page-header bg-img size-lg"
+		style="background-image: url(resources/img/bg-banner1.jpg)">
+	<div class="container no-shadow">
+		<h1 class="text-center">Manage companies</h1>
+		<p class="lead text-center">Here's the list of your registered
+			companies. You can edit or delete them, or even add a new one.</p>
+	</div>
+	</header>
+	<!-- END Page header -->
 
 
-    <!-- Main container -->
-    <main>
-      <section class="no-padding-top bg-alt">
-        <div class="container">
-          <div class="row item-blocks-condensed">
+	<!-- Main container -->
+	<main> <section class="no-padding-top bg-alt">
+	<div class="container">
+		<div class="row item-blocks-condensed">
 
-            <div class="col-xs-12 text-right">
-              <br>
-              <a class="btn btn-primary btn-sm" href="company-add.html">Add new company</a>
-            </div>
+			<div class="col-xs-12 text-right">
+				<br> <a class="btn btn-primary btn-sm" href="/companies/post">Add
+					new company</a>
+			</div>
 
+			<!-- Company item -->
+			<c:forEach items="${postedCompanies}" var="company">
+				<div class="col-xs-12">
+					<div class="item-block">
+						<header>
+						<div class="hgroup">
+							<h4>
+								<a href="/companies/${company.id}">${company.companyName}</a>
+							</h4>
+							<h5>
+								${company.headline} <a
+									href="company-detail.html#open-positions"><span
+									class="label label-info">${company.jobPosts.size()} jobs</span></a>
+							</h5>
+						</div>
+						<div class="action-btn">
+							<a class="btn btn-xs btn-gray" href="/companies/edit/${company.id}">Edit</a> <a
+								class="btn btn-xs btn-danger" href="/companies/delete/${company.id}">Delete</a>
+						</div>
+						</header>
+					</div>
+				</div>
+			</c:forEach>
+			<!-- END Company item -->
+			
 
-            <!-- Company item -->
-            <div class="col-xs-12">
-              <div class="item-block">
-                <header>
-                  <a href="company-detail.html"><img src="resources/img/logo-google.jpg" alt=""></a>
-                  <div class="hgroup">
-                    <h4><a href="company-detail.html">Google</a></h4>
-                    <h5>Internet and computer software <a href="company-detail.html#open-positions"><span class="label label-info">15 jobs</span></a></h5>
-                  </div>
-                  <div class="action-btn">
-                    <a class="btn btn-xs btn-gray" href="#">Edit</a>
-                    <a class="btn btn-xs btn-danger" href="#">Delete</a>
-                  </div>
-                </header>
-              </div>
-            </div>
-            <!-- END Company item -->
-
-          </div>
-        </div>
-      </section>
-    </main>
-    <!-- END Main container -->
+		</div>
+	</div>
+	</section> </main>
+	<!-- END Main container -->
 
 
 	<!-- Site footer -->

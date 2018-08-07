@@ -3,11 +3,15 @@ package employmentservices.model.job;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import employmentservices.model.company.Company;
@@ -50,7 +54,8 @@ public class Location implements java.io.Serializable {
 		this.companies = companies;
 	}
 
-	@Id
+	@Id @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "location_generator")
+	@SequenceGenerator(name="location_generator", sequenceName = "location_id_seq")
 
 	@Column(name = "id", unique = true, nullable = false)
 	public int getId() {

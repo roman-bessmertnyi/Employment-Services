@@ -4,17 +4,23 @@ package employmentservices.model.user;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import employmentservices.model.job.JobPost;
 import employmentservices.model.job.JobPostActivity;
@@ -78,7 +84,8 @@ public class UserAccount implements java.io.Serializable {
 	}
 
 	@Id
-
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_account_generator")
+	@SequenceGenerator(name = "user_account_generator", sequenceName = "user_account_id_seq")
 	@Column(name = "id", unique = true, nullable = false)
 	public int getId() {
 		return this.id;
@@ -142,8 +149,9 @@ public class UserAccount implements java.io.Serializable {
 	public void setEmailNotificationActive(boolean emailNotificationActive) {
 		this.emailNotificationActive = emailNotificationActive;
 	}
-
+	
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="dd.MM.yyyy")
 	@Column(name = "registration_date", nullable = false, length = 13)
 	public Date getRegistrationDate() {
 		return this.registrationDate;

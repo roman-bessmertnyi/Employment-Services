@@ -3,11 +3,15 @@ package employmentservices.model.job;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -39,7 +43,8 @@ public class JobDegree implements java.io.Serializable {
 		this.jobPosts = jobPosts;
 	}
 
-	@Id
+	@Id @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "job_degree_generator")
+	@SequenceGenerator(name="job_degree_generator", sequenceName = "job_degree_id_seq")
 
 	@Column(name = "id", unique = true, nullable = false)
 	public int getId() {

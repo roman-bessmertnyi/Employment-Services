@@ -43,7 +43,7 @@
 			<br> <br>
 			<h2>
 				We offer
-				<mark>1,259</mark>
+				<mark>${jobAmount}</mark>
 				job vacancies right now!
 			</h2>
 			<h5 class="font-alt">Find your desire one in a minute</h5>
