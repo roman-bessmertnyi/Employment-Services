@@ -7,6 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Controller
 public class ResumeWriteController {
 
-	
+	//TODO: Look around lol
 	
 }

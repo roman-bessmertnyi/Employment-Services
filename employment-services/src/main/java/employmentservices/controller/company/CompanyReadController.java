@@ -13,6 +13,7 @@ import employmentservices.service.company.CompanyService;
 
 @Controller
 public class CompanyReadController {
+	// TODO: Company Filter
 	@Autowired
 	CompanyService companyService;
 	
@@ -25,6 +26,7 @@ public class CompanyReadController {
 	
 	@RequestMapping("/companies/{id}")
 	public String companyDetail(@PathVariable("id") int companyId, ModelMap model) {
+		//TODO: Add cut content
 		Company company = companyService.findById(companyId);
 		model.addAttribute("company", company);
 		model.addAttribute("foundJobs", company.getJobPosts());

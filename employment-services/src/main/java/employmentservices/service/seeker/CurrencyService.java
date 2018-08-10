@@ -1,4 +1,4 @@
-package employmentservices.service.job;
+package employmentservices.service.seeker;
 
 import java.util.List;
 
@@ -6,19 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import employmentservices.dao.job.JobTypeDao;
-import employmentservices.model.job.JobType;
+import employmentservices.dao.seeker.CurrencyDao;
+import employmentservices.model.seeker.Currency;
 
-@Service("jobTypeService")
+@Service("currencyService")
 @Transactional
-public class JobTypeService {
+public class CurrencyService {
 	@Autowired
-    private JobTypeDao dao;
-	public List<JobType> findAll()
-	{
+	private CurrencyDao dao;
+
+	public List<Currency> findAll() {
 		return dao.findAll();
 	}
-	public JobType findById(int id) {
+
+	public Currency findById(int id) {
 		return dao.findById(id).orElseThrow(() -> new RuntimeException("Target not found"));
 	}
 }

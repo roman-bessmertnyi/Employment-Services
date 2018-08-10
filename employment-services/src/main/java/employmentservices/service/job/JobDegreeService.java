@@ -6,19 +6,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import employmentservices.dao.job.JobTypeDao;
-import employmentservices.model.job.JobType;
+import employmentservices.dao.job.JobDegreeDao;
+import employmentservices.model.job.JobDegree;
 
-@Service("jobTypeService")
+@Service("jobDegreeService")
 @Transactional
-public class JobTypeService {
+public class JobDegreeService {
 	@Autowired
-    private JobTypeDao dao;
-	public List<JobType> findAll()
-	{
+	private JobDegreeDao dao;
+
+	public List<JobDegree> findAll() {
 		return dao.findAll();
 	}
-	public JobType findById(int id) {
+
+	public JobDegree findById(int id) {
 		return dao.findById(id).orElseThrow(() -> new RuntimeException("Target not found"));
 	}
+
 }

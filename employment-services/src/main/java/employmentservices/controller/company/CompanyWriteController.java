@@ -65,7 +65,6 @@ public class CompanyWriteController {
 		Company company = companyService.findById(companyId);
 		
 		companyService.deleteById(companyId);
-		
 		businessStreamService.deleteById(company.getBusinessStream().getId());
 		companyLocationService.deleteById(company.getLocation().getId());
 		

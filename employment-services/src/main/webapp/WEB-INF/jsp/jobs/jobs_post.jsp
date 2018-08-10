@@ -37,48 +37,123 @@
 	<jsp:include page="../navigation.jsp" />
 	<!-- END Navigation bar -->
 
+	<form:form method="POST" action="/jobs/post" modelAttribute="job">
+		<!-- Page header -->
+		<header class="page-header">
+		<div class="container page-name">
+			<h1 class="text-center">Add a new job</h1>
+			<p class="lead text-center">Create a new vacancy for your company
+				and put it online.</p>
+		</div>
 
-	<!-- Page header -->
-	<header class="page-header">
-	<div class="container page-name">
-		<h1 class="text-center">Add a new job</h1>
-		<p class="lead text-center">Create a new vacancy for your company
-			and put it online.</p>
-	</div>
+		<div class="container">
 
-	<div class="container">
-		<form:form method="POST" action="/jobs/post" modelAttribute="job">
 			<div class="row">
+
 				<div class="form-group col-xs-12 col-sm-6">
-					<form:select path="jobType" class="form-control selectpicker">
-						<c:forEach items="${jobTypeList}" varStatus="status">
-							<form:option value="${jobTypeList[status.index].id}"
-								label="${jobTypeList[status.index].jobType}" />
-						</c:forEach>
-					</form:select>
+					<form:input type="text" path="jobTitle"
+						class="form-control input-lg"
+						placeholder="Job title, e.g. Front-end developer" />
 				</div>
+
+
 
 				<div class="form-group col-xs-12 col-sm-6">
 					<form:select path="company" class="form-control selectpicker">
 						<c:forEach items="${companyList}" varStatus="status">
 							<form:option value="${companyList[status.index].id}"
-								label="${companyList[status.index].company_name}" />
+								label="${companyList[status.index].companyName}" />
 						</c:forEach>
 					</form:select>
 				</div>
 
 				<div class="form-group col-xs-12">
-					<form:textarea path="description" class="form-control" rows="5"
+					<form:textarea path="description" class="form-control" rows="3"
 						placeholder="Short description" />
+				</div>
+
+				<div class="form-group col-xs-12">
+					<form:input type="text" path="applicationWebsite"
+						class="form-control" placeholder="Application URL" />
 				</div>
 
 				<div class="form-group col-xs-12 col-sm-6 col-md-4">
 					<div class="input-group input-group-sm">
 						<span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-						<form:input type="text" path="location.city"
-							class="form-control" placeholder="City" />
-						<form:input type="text" path="location.state"
-							class="form-control" placeholder="State" />
+						<form:input type="text" path="location.city" class="form-control"
+							placeholder="City" />
+					</div>
+				</div>
+
+				<div class="form-group col-xs-12 col-sm-6 col-md-4">
+					<div class="input-group input-group-sm">
+						<span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+						<form:input type="text" path="location.state" class="form-control"
+							placeholder="State" />
+					</div>
+				</div>
+
+				<div class="form-group col-xs-12 col-sm-6 col-md-4">
+					<div class="input-group input-group-sm">
+						<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+						<form:select path="jobType" class="form-control selectpicker">
+							<c:forEach items="${jobTypeList}" varStatus="status">
+								<form:option value="${jobTypeList[status.index].id}"
+									label="${jobTypeList[status.index].jobType}" />
+							</c:forEach>
+						</form:select>
+					</div>
+				</div>
+
+				<div class="form-group col-xs-12 col-sm-6 col-md-4">
+					<div class="input-group input-group-sm">
+						<span class="input-group-addon"><i class="fa fa-money"></i></span>
+						<form:input type="text" path="salary" class="form-control"
+							placeholder="800" />
+						<span class="input-group-addon">Salary</span>
+					</div>
+				</div>
+
+				<div class="form-group col-xs-12 col-sm-6 col-md-4">
+					<div class="input-group input-group-sm">
+						<span class="input-group-addon"><i class="fa fa-money"></i></span>
+						<form:select path="currency" class="form-control selectpicker">
+							<c:forEach items="${currencyList}" varStatus="status">
+								<form:option value="${currencyList[status.index].id}"
+									label="${currencyList[status.index].currencyName}" />
+							</c:forEach>
+						</form:select>
+					</div>
+				</div>
+
+				<div class="form-group col-xs-12 col-sm-6 col-md-4">
+					<div class="input-group input-group-sm">
+						<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+						<form:input type="text" path="workingHours" class="form-control"
+							placeholder="Working hours, e.g. 40" />
+						<span class="input-group-addon">hours / week</span>
+					</div>
+				</div>
+
+				<div class="form-group col-xs-12 col-sm-6 col-md-4">
+					<div class="input-group input-group-sm">
+						<span class="input-group-addon"><i class="fa fa-flask"></i></span>
+						<form:input type="text" path="experienceYears"
+							class="form-control" placeholder="Experience, e.g. 5" />
+						<span class="input-group-addon">Years</span>
+					</div>
+				</div>
+
+				<div class="form-group col-xs-12 col-sm-6 col-md-4">
+					<div class="input-group input-group-sm">
+						<span class="input-group-addon"><i
+							class="fa fa-certificate"></i></span>
+						<form:select path="jobDegree" class="form-control selectpicker">
+							<c:forEach items="${jobDegreeList}" varStatus="status">
+								<form:option value="${jobDegreeList[status.index].id}"
+									label="${jobDegreeList[status.index].degreeName}" />
+							</c:forEach>
+						</form:select>
 					</div>
 				</div>
 
@@ -87,19 +162,20 @@
 					Hide Company name?
 				</div>
 				<form:input type="hidden" path="isActive" value="true" />
-				
-				<form:input type="hidden" path="location.id" value="${job.location.id}" />
-				
+
+				<form:input type="hidden" path="location.id"
+					value="${job.location.id}" />
+
 				<form:input type="hidden" path="id" value="${job.id}" />
 
 				<form:input type="hidden" path="userAccount" value="${posterId}" />
 
 				<%
-					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+					SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
 						String formatteddate = sdf.format(new Date());
 				%>
 
-				<form:input type="hidden" path="createdDate" id="registration_date"
+				<form:input type="hidden" path="createdDate"
 					value="<%=formatteddate%>" />
 
 				<input type="submit" id="submit-job" class="hidden" />
@@ -116,44 +192,43 @@
 					</div>
 				</div>
 			</div> -->
-		</form:form>
-	</div>
-	</header>
-	<!-- END Page header -->
 
-
-	<!-- Main container -->
-	<main> <!-- Job detail --> <!-- <section>
-	<div class="container">
-
-		<header class="section-header"> <span>Description</span>
-		<h2>Job detail</h2>
-		<p>Write about your company, job description, skills required,
-			benefits, etc.</p>
+		</div>
 		</header>
+		<!-- END Page header -->
 
-		<textarea class="summernote-editor"></textarea>
 
-	</div>
-	</section> --> <!-- END Job detail --> <!-- Submit --> <section
-		class="bg-alt">
-	<div class="container">
-		<header class="section-header"> <span>Are you done?</span>
-		<h2>Submit Job</h2>
-		<p>Please review your information once more and press the below
-			button to put your job online.</p>
-		</header>
+		<!-- Main container -->
+		<main> <!-- Job detail --> <section>
+		<div class="container">
 
-		<p class="text-center">
-			<label for="submit-job" class="btn btn-success btn-xl btn-round">Submit
-				your job</label>
-		</p>
+			<header class="section-header"> <span>Description</span>
+			<h2>Job detail</h2>
+			<p>Write about your company, job description, skills required,
+				benefits, etc.</p>
+			</header>
 
-	</div>
+			<form:textarea path="jobDetail" class="form-control" rows="10" />
 
-	</section> <!-- END Submit --> </main>
-	<!-- END Main container -->
+		</div>
+		</section> <!-- END Job detail --> <!-- Submit --> <section class="bg-alt">
+		<div class="container">
+			<header class="section-header"> <span>Are you done?</span>
+			<h2>Submit Job</h2>
+			<p>Please review your information once more and press the below
+				button to put your job online.</p>
+			</header>
 
+			<p class="text-center">
+				<label for="submit-job" class="btn btn-success btn-xl btn-round">Submit
+					your job</label>
+			</p>
+
+		</div>
+
+		</section> <!-- END Submit --> </main>
+		<!-- END Main container -->
+	</form:form>
 
 	<!-- Site footer -->
 	<jsp:include page="../footer.jsp" />
