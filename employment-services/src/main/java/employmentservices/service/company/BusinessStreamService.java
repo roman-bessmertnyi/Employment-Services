@@ -28,5 +28,9 @@ public class BusinessStreamService {
 	public void save(@Valid BusinessStream businessStream) {
 		dao.save(businessStream);
 	}
+	
+	public void deleteById(int id) {
+		dao.deleteById(id);
+	}
 
 }

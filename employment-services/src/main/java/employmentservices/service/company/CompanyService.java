@@ -28,4 +28,8 @@ public class CompanyService {
 	public void save(@Valid Company company) {
 		dao.save(company);
 	}
+	
+	public void deleteById(int id) {
+		dao.deleteById(id);
+	}
 }

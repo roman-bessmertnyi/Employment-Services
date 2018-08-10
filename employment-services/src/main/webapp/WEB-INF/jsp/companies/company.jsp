@@ -39,11 +39,6 @@
 		style="background-image: url(../../resources/img/bg-banner2.jpg)">
 	<div class="container">
 		<div class="header-detail">
-			<c:if test="${company.company_images.size() != 0}">
-				<img
-					src="../../resources/img/${company.company_images.get(0).company_image}"
-					alt="">
-			</c:if>
 			<div class="hgroup">
 				<h1>${company.company_name}</h1>
 				<h3>${company.busisness_stream.business_stream_name}</h3>

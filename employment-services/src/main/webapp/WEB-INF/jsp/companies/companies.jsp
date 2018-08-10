@@ -102,20 +102,15 @@
 			<c:forEach items="${companies}" var="company">
 				<div class="col-xs-12">
 					<a class="item-block" href="/companies/${company.id}"> <header>
-						<c:if test="${company.company_images.size() != 0}">
-							<img
-								src="../resources/img/${company.company_images.get(0).company_image}"
-								alt="">
-						</c:if>
 						<div class="hgroup">
-							<h4>${company.company_name}</h4>
-							<h5>${company.busisness_stream.business_stream_name}</h5>
+							<h4>${company.companyName}</h4>
+							<h5>${company.businessStream.businessStreamName}</h5>
 						</div>
-						<span class="open-position">${company.job_posts.size()}
+						<span class="open-position">${company.jobPosts.size()}
 							open position</span> </header>
 
 						<div class="item-body">
-							<p>${company.profile_description}</p>
+							<p>${company.description}</p>
 						</div>
 					</a>
 				</div>

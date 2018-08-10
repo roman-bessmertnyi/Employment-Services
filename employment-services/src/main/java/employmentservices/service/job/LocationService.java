@@ -28,4 +28,8 @@ public class LocationService {
 	public void save(@Valid Location loc) {
 		dao.save(loc);
 	}
+	
+	public void deleteById(int id) {
+		dao.deleteById(id);
+	}
 }

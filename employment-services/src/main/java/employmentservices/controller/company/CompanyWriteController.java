@@ -8,8 +8,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -24,9 +22,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import employmentservices.model.company.BusinessStream;
 import employmentservices.model.company.Company;
 import employmentservices.model.company.EmployeeAmount;
-import employmentservices.model.job.JobPost;
-import employmentservices.model.job.JobType;
-import employmentservices.model.user.UserAccount;
 import employmentservices.service.company.BusinessStreamService;
 import employmentservices.service.company.CompanyService;
 import employmentservices.service.company.EmployeeAmountService;
@@ -66,12 +61,29 @@ public class CompanyWriteController {
 
 	@RequestMapping("/companies/delete/{id}")
 	public String companiesDelete(@PathVariable("id") int companyId, ModelMap model) {
+		
+		Company company = companyService.findById(companyId);
+		
+		companyService.deleteById(companyId);
+		
+		businessStreamService.deleteById(company.getBusinessStream().getId());
+		companyLocationService.deleteById(company.getLocation().getId());
+		
 		return "redirect:/companies/manage";
 	}
 
 	@RequestMapping("/companies/edit/{id}")
 	public String companiesEdit(@PathVariable("id") int companyId, ModelMap model) {
-		return "companies/post";
+		
+		List<BusinessStream> businessStreamList = businessStreamService.findAll();
+		model.addAttribute("businessStreamList", businessStreamList);
+		List<EmployeeAmount> employeeAmountList = employeeAmountService.findAll();
+		model.addAttribute("employeeAmountList", employeeAmountList);
+		
+		Company company = companyService.findById(companyId);
+		model.addAttribute("company", company);
+		
+		return "companies/companies_post";
 	}
 
 	@RequestMapping(value = "/companies/post", method = RequestMethod.GET)
@@ -108,18 +120,6 @@ public class CompanyWriteController {
 		model.addAttribute("employeeAmountList", employeeAmountList);
 		
 		return "companies/companies_post";
-	}
-	
-	private String getPrincipal() {
-		String userName = null;
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-		if (principal instanceof UserDetails) {
-			userName = ((UserDetails) principal).getUsername();
-		} else {
-			userName = principal.toString();
-		}
-		return userName;
 	}
 	
 }

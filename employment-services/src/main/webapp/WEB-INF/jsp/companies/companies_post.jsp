@@ -16,8 +16,8 @@
 <title>Employment Services</title>
 
 <!-- Styles -->
-<link href="../resources/css/app.min.css" rel="stylesheet">
-<link href="../resources/css/custom.css" rel="stylesheet">
+<link href="../../resources/css/app.min.css" rel="stylesheet">
+<link href="../../resources/css/custom.css" rel="stylesheet">
 
 <!-- Fonts -->
 <link
@@ -26,7 +26,7 @@
 
 <!-- Favicons -->
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="icon" href="../resources/img/favicon.ico">
+<link rel="icon" href="../../resources/img/favicon.ico">
 </head>
 
 <body class="nav-on-header">
@@ -56,8 +56,8 @@
 						<div class="col-xs-12 col-sm-4 col-lg-2">
 							<div class="form-group">
 								<input type="file" class="dropify"
-									data-default-file="resources/img/logo-default.png"> <span
-									class="help-block">A square logo</span>
+									data-default-file="../../resources/img/logo-default.png">
+								<span class="help-block">A square logo</span>
 							</div>
 						</div>
 
@@ -137,7 +137,7 @@
 								<span class="input-group-addon"><i
 									class="fa fa-birthday-cake"></i></span>
 
-								<form:input type="text" path="establishmentDate" class="control"
+								<form:input type="text" path="establishmentDate" class="form-control"
 									placeholder="Founded on, e.g. 2013" />
 							</div>
 						</div>
@@ -189,7 +189,7 @@
 				etc.</p>
 			</header>
 
-			<form:textarea path="companyDetail" class="form-control" rows="10"/>
+			<form:textarea path="companyDetail" class="form-control" rows="10" />
 
 		</div>
 		</section> <!-- END Company detail --> <!-- Submit --> <section>
@@ -209,6 +209,14 @@
 		</section> <!-- END Submit --> </main>
 		<!-- END Main container -->
 
+		<form:input type="hidden" path="businessStream.id"
+			value="${company.businessStream.id}" />
+
+		<form:input type="hidden" path="location.id"
+			value="${company.location.id}" />
+
+		<form:input type="hidden" path="id" value="${company.id}" />
+
 		<input type="submit" id="submit-company" class="hidden" />
 
 	</form:form>
@@ -223,8 +231,8 @@
 	<!-- END Back to top button -->
 
 	<!-- Scripts -->
-	<script src="../resources/js/app.min.js"></script>
-	<script src="../resources/js/custom.js"></script>
+	<script src="../../resources/js/app.min.js"></script>
+	<script src="../../resources/js/custom.js"></script>
 
 </body>
 </html>
