@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -107,13 +108,13 @@ public class JobWriteController {
 	@RequestMapping(value = "/jobs/post", method = RequestMethod.POST)
 	public String jobsPost(@Valid @ModelAttribute("job") JobPost job, BindingResult result, ModelMap model) {
 		
-		/*if (result.hasErrors()) {
+		if (result.hasErrors()) {
 			System.out.println("There are errors");
 			for (ObjectError e : result.getAllErrors()) {
 				System.out.println(e.getObjectName());
 			}
 			return "redirect:/home";
-		}*/
+		}
 		
 		jobLocationService.save(job.getLocation());
 		jobPostService.save(job);

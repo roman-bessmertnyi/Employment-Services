@@ -2,6 +2,8 @@ package employmentservices.service.seeker;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,5 +34,13 @@ public class SeekerService {
 	public List<SeekerProfile> searchBy(String keyword, String location) {
 		// TODO location
 		return dao.searchBy(keyword);
+	}
+	
+	public void save(@Valid SeekerProfile seeker) {
+		dao.save(seeker);
+	}
+	
+	public void deleteById(int id) {
+		dao.deleteById(id);
 	}
 }
