@@ -15,8 +15,8 @@
 <title>TheJobs - Resume list</title>
 
 <!-- Styles -->
-<link href="../../../resources/css/app.min.css" rel="stylesheet">
-<link href="../../../resources/css/custom.css" rel="stylesheet">
+<link href="../../css/app.min.css" rel="stylesheet">
+<link href="../../css/custom.css" rel="stylesheet">
 
 <!-- Fonts -->
 <link
@@ -25,7 +25,7 @@
 
 <!-- Favicons -->
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="icon" href="../../../resources/img/favicon.ico">
+<link rel="icon" href="../../img/favicon.ico">
 </head>
 
 <body class="nav-on-header bg-alt">
@@ -40,7 +40,7 @@
 
 	<!-- Page header -->
 	<header class="page-header bg-img size-lg"
-		style="background-image: url(../resources/img/bg-banner1.jpg)">
+		style="background-image: url(img/bg-banner1.jpg)">
 	<div class="container no-shadow">
 		<h1 class="text-center">Manage jobs</h1>
 		<p class="lead text-center">Here's the list of your submitted
@@ -67,7 +67,7 @@
 						<header> <%-- <a href="/companies/${job.company.id}"><c:if
 								test="${job.company.company_images.size() != 0}">
 								<img
-									src="../resources/img/${job.company.company_images.get(0).company_image}"
+									src="img/${job.company.company_images.get(0).company_image}"
 									alt="${job.company.company_name}">
 							</c:if></a> --%>
 						<div class="hgroup">
@@ -111,9 +111,9 @@
 	<!-- END Back to top button -->
 
 	<!-- Scripts -->
-	<script src="../../../resources/js/app.min.js"></script>
-	<script src="../../../resources/js/summernote.min.js"></script>
-	<script src="../../../resources/js/custom.js"></script>
+	<script src="../../js/app.min.js"></script>
+	<script src="../../js/summernote.min.js"></script>
+	<script src="../../js/custom.js"></script>
 
 </body>
 </html>

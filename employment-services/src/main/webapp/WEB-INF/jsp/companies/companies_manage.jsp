@@ -14,8 +14,8 @@
 <title>Employment Services</title>
 
 <!-- Styles -->
-<link href="../resources/css/app.min.css" rel="stylesheet">
-<link href="../resources/css/custom.css" rel="stylesheet">
+<link href="css/app.min.css" rel="stylesheet">
+<link href="css/custom.css" rel="stylesheet">
 
 <!-- Fonts -->
 <link
@@ -24,7 +24,7 @@
 
 <!-- Favicons -->
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="icon" href="../resources/img/favicon.ico">
+<link rel="icon" href="img/favicon.ico">
 </head>
 
 <body class="nav-on-header">
@@ -97,8 +97,8 @@
 	<!-- END Back to top button -->
 
 	<!-- Scripts -->
-	<script src="../resources/js/app.min.js"></script>
-	<script src="../resources/js/custom.js"></script>
+	<script src="js/app.min.js"></script>
+	<script src="js/custom.js"></script>
 
 </body>
 </html>

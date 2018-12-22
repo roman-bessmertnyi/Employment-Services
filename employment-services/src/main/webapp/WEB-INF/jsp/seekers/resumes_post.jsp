@@ -15,8 +15,8 @@
 <title>TheJobs - Resume list</title>
 
 <!-- Styles -->
-<link href="../../../resources/css/app.min.css" rel="stylesheet">
-<link href="../../../resources/css/custom.css" rel="stylesheet">
+<link href="../../css/app.min.css" rel="stylesheet">
+<link href="../../css/custom.css" rel="stylesheet">
 
 <!-- Fonts -->
 <link
@@ -25,7 +25,7 @@
 
 <!-- Favicons -->
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="icon" href="../../../resources/img/favicon.ico">
+<link rel="icon" href="../../img/favicon.ico">
 </head>
 
 <body class="nav-on-header bg-alt">
@@ -52,7 +52,7 @@
 				<div class="col-xs-12 col-sm-4">
 					<div class="form-group">
 						<input type="file" class="dropify"
-							data-default-file="../resources/img/avatar.jpg"> <span
+							data-default-file="img/avatar.jpg"> <span
 							class="help-block">Please choose a 4:6 profile picture.</span>
 					</div>
 				</div>
@@ -197,7 +197,7 @@
 								<div class="col-xs-12 col-sm-4">
 									<div class="form-group">
 										<input type="file" class="dropify"
-											data-default-file="../resources/img/logo-default.png">
+											data-default-file="img/logo-default.png">
 										<span class="help-block">Please choose a square logo</span>
 									</div>
 								</div>
@@ -255,7 +255,7 @@
 								<div class="col-xs-12 col-sm-4">
 									<div class="form-group">
 										<input type="file" class="dropify"
-											data-default-file="../resources/img/logo-default.png">
+											data-default-file="img/logo-default.png">
 										<span class="help-block">Please choose a square logo</span>
 									</div>
 								</div>
@@ -328,7 +328,7 @@
 								<div class="col-xs-12 col-sm-4">
 									<div class="form-group">
 										<input type="file" class="dropify"
-											data-default-file="../resources/img/logo-default.png">
+											data-default-file="img/logo-default.png">
 										<span class="help-block">Please choose a square logo</span>
 									</div>
 								</div>
@@ -428,7 +428,7 @@
 
 		</div>
 		</section> <!-- END Skills --> <!-- Submit --> <section class=" bg-img"
-			style="background-image: url(../resources/img/bg-facts.jpg);">
+			style="background-image: url(img/bg-facts.jpg);">
 		<div class="container">
 			<header class="section-header"> <span>Are you done?</span>
 			<h2>Submit resume</h2>
@@ -457,9 +457,9 @@
 	<!-- END Back to top button -->
 
 	<!-- Scripts -->
-	<script src="../../../resources/js/app.min.js"></script>
-	<script src="../../../resources/js/summernote.min.js"></script>
-	<script src="../../../resources/js/custom.js"></script>
+	<script src="../../js/app.min.js"></script>
+	<script src="../../js/summernote.min.js"></script>
+	<script src="../../js/custom.js"></script>
 
 </body>
 </html>

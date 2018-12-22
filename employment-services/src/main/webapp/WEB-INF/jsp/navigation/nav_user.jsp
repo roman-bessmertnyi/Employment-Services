@@ -22,9 +22,9 @@
 
 			<div class="logo-wrapper">
 				<a class="logo" href="/home"><img
-					src="../../../resources/img/logo.png" alt="logo"></a> <a
+					src="../../img/logo.png" alt="logo"></a> <a
 					class="logo-alt" href="/home"><img
-					src="../../../resources/img/logo-alt.png" alt="logo-alt"></a>
+					src="../../img/logo-alt.png" alt="logo-alt"></a>
 			</div>
 
 		</div>

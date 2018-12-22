@@ -15,8 +15,8 @@
 <title>Employment Services</title>
 
 <!-- Styles -->
-<link href="../resources/css/app.min.css" rel="stylesheet">
-<link href="../resources/css/custom.css" rel="stylesheet">
+<link href="css/app.min.css" rel="stylesheet">
+<link href="css/custom.css" rel="stylesheet">
 
 <!-- Fonts -->
 <link
@@ -25,7 +25,7 @@
 
 <!-- Favicons -->
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="icon" href="../resources/img/favicon.ico">
+<link rel="icon" href="img/favicon.ico">
 </head>
 
 <body class="nav-on-header">
@@ -40,7 +40,7 @@
 
 	<!-- Page header -->
 	<header class="page-header bg-img"
-		style="background-image: url(../resources/img/bg-banner1.jpg);">
+		style="background-image: url(img/bg-banner1.jpg);">
 	<div class="container page-name">
 		<h1 class="text-center">Browse jobs</h1>
 		<p class="lead text-center">Use following search box to find jobs
@@ -99,7 +99,7 @@
 					<a class="item-block" href="/jobs/${job.id}"> <header>
 						<%-- <c:if test="${job.company.company_images.size() != 0}">
 							<img
-								src="../resources/img/${job.company.company_images.get(0).company_image}"
+								src="img/${job.company.company_images.get(0).company_image}"
 								alt="">
 						</c:if> --%>
 						<div class="hgroup">

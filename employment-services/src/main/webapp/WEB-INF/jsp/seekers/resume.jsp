@@ -15,8 +15,8 @@
 <title>TheJobs - Resume list</title>
 
 <!-- Styles -->
-<link href="../../../../resources/css/app.min.css" rel="stylesheet">
-<link href="../../../../resources/css/custom.css" rel="stylesheet">
+<link href="../../../css/app.min.css" rel="stylesheet">
+<link href="../../../css/custom.css" rel="stylesheet">
 
 <!-- Fonts -->
 <link
@@ -25,7 +25,7 @@
 
 <!-- Favicons -->
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="icon" href="../../../../resources/img/favicon.ico">
+<link rel="icon" href="../../../img/favicon.ico">
 </head>
 
 <body class="nav-on-header bg-alt">
@@ -40,12 +40,12 @@
 
 	<!-- Page header -->
 	<header class="page-header bg-img"
-		style="background-image: url(../../../resources/img/bg-banner1.jpg)">
+		style="background-image: url(../../img/bg-banner1.jpg)">
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-4">
 				<c:if test="${seeker.user_account.user_image != null}">
-					<img src="../../../resources/img/${seeker.user_account.user_image}"
+					<img src="../../img/${seeker.user_account.user_image}"
 						alt="">
 				</c:if>
 			</div>
@@ -210,8 +210,8 @@
 	<!-- END Back to top button -->
 
 	<!-- Scripts -->
-	<script src="../../../resources/js/app.min.js"></script>
-	<script src="../../../resources/js/custom.js"></script>
+	<script src="../../js/app.min.js"></script>
+	<script src="../../js/custom.js"></script>
 
 </body>
 </html>

@@ -15,8 +15,8 @@
 <title>Employment Services</title>
 
 <!-- Styles -->
-<link href="../resources/css/app.min.css" rel="stylesheet">
-<link href="../resources/css/custom.css" rel="stylesheet">
+<link href="css/app.min.css" rel="stylesheet">
+<link href="css/custom.css" rel="stylesheet">
 
 <!-- Fonts -->
 <link
@@ -25,7 +25,7 @@
 
 <!-- Favicons -->
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="icon" href="../resources/img/favicon.ico">
+<link rel="icon" href="img/favicon.ico">
 </head>
 
 <body class="nav-on-header">
@@ -40,12 +40,12 @@
 
 	<!-- Page header -->
 	<header class="page-header bg-img size-lg"
-		style="background-image: url(../resources/img/bg-banner2.jpg)">
+		style="background-image: url(img/bg-banner2.jpg)">
 	<div class="container">
 		<div class="header-detail">
 			<%-- <c:if test="${job.company.company_images.size() != 0}">
 							<img
-								src="../resources/img/${job.company.company_images.get(0).company_image}"
+								src="img/${job.company.company_images.get(0).company_image}"
 								alt="">
 						</c:if> --%>
 			<div class="hgroup">
@@ -109,8 +109,8 @@
 	<!-- END Back to top button -->
 
 	<!-- Scripts -->
-	<script src="../resources/js/app.min.js"></script>
-	<script src="../resources/js/custom.js"></script>
+	<script src="js/app.min.js"></script>
+	<script src="js/custom.js"></script>
 
 </body>
 </html>
