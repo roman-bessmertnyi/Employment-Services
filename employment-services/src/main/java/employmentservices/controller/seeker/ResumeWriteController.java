@@ -22,6 +22,7 @@ import employmentservices.service.user.UserAccountService;
 @Controller
 public class ResumeWriteController {
 
+<<<<<<< HEAD
 	//TODO: Add resume writing functionality
 	
 	//TODO: Merge seekers and resumes, it's a fucking headache I hate my life
@@ -63,6 +64,9 @@ public class ResumeWriteController {
 
 		return "seekers/resumes_post";
 	}
+=======
+	
+>>>>>>> parent of a863b46... Fixed company view, company and job write
 	
 	private String getPrincipal() {
 		String userName = null;

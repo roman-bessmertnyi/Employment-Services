@@ -47,7 +47,7 @@ public class JobPost implements java.io.Serializable {
 	private boolean isCompanyNameHidden;
 	private String description;
 	private String applicationWebsite;
-	private int salary;  // TODO: replace int with something humane
+	private int salary;
 	private int workingHours;
 	private int experienceYears;
 	private String jobDetail;

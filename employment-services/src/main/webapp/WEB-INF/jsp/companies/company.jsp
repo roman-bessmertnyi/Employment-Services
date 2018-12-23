@@ -40,11 +40,11 @@
 	<div class="container">
 		<div class="header-detail">
 			<div class="hgroup">
-				<h1>${company.companyName}</h1>
-				<h3>${company.headline}</h3>
+				<h1>${company.company_name}</h1>
+				<h3>${company.busisness_stream.business_stream_name}</h3>
 			</div>
 			<hr>
-			<p class="lead">${company.description}</p>
+			<p class="lead">${company.profile_description}</p>
 
 			<div class="button-group">
 
@@ -73,25 +73,25 @@
 				<!-- Job item -->
 				<div class="col-xs-12">
 					<a class="item-block" href="/jobs/${job.id}"> <header>
-						<%-- <c:if test="${job.company.company_images.size() != 0}">
+						<c:if test="${job.company.company_images.size() != 0}">
 							<img
 								src="../img/${job.company.company_images.get(0).company_image}"
 								alt="">
-						</c:if> --%>
+						</c:if>
 						<div class="hgroup">
-							<h4>${job.jobTitle}</h4>
+							<h4>${job.jobType.jobType}r</h4>
 							<h5>
-								${job.company.companyName} <span class="label label-success">${job.jobType.jobType}</span>
+								${job.company.company_name} <span class="label label-success">Full-time</span>
 							</h5>
 						</div>
 						<time>Posted: ${job.createdDate}</time> </header>
 
 						<div class="item-body">
-							<p>${job.description}</p>
+							<p>${job.jobDescription}</p>
 						</div> <footer>
 						<ul class="details cols-3">
-							<li><i class="fa fa-map-marker"></i> <span>${job.location.city},
-									${job.location.state}</span></li>
+							<li><i class="fa fa-map-marker"></i> <span>${job.jobLocation.street_adress},
+									${job.jobLocation.city}</span></li>
 
 							<!-- <li><i class="fa fa-money"></i> <span>$90,000 -
 									$110,000 / year</span></li>

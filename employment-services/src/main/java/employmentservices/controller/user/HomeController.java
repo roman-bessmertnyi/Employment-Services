@@ -24,9 +24,7 @@ import employmentservices.service.user.UserAccountService;
 
 @Controller
 public class HomeController {
-	//TODO: Add cut content
-	
-	
+
 	@Autowired
 	UserAccountService userAccountService;
 	

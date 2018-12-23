@@ -21,7 +21,6 @@ import employmentservices.service.job.JobTypeService;
 
 @Controller
 public class JobReadController {
-	
 	@Autowired
 	JobPostService jobPostService;
 
@@ -30,7 +29,6 @@ public class JobReadController {
 	
 	@RequestMapping(value = "/jobs", method = RequestMethod.GET)
 	public String findJobs(ModelMap model) {
-		//TODO: Add cut content
 		SearchFilter<JobType> jobFilter = new SearchFilter<JobType>(null, null);
 		model.addAttribute("jobFilter", jobFilter);
 
@@ -43,7 +41,6 @@ public class JobReadController {
 	@RequestMapping(value = "/jobs", method = RequestMethod.POST)
 	public String findJobs(@Valid @ModelAttribute("jobFilter") SearchFilter<JobType> jobFilter, BindingResult result,
 			ModelMap model) {
-		// TODO: Redo job filter
 		List<JobPost> foundJobs = jobPostService.searchBy(jobFilter.getKeyword(), jobFilter.getLocation());
 		model.addAttribute("jobFilter", jobFilter);
 		model.addAttribute("foundJobs", foundJobs);
@@ -53,14 +50,8 @@ public class JobReadController {
 	@RequestMapping("/jobs/{id}")
 	public String jobsDetail(@PathVariable("id") int jobId, ModelMap model) {
 		JobPost job = jobPostService.findById(jobId);
-		
-		job.setDescription(job.getDescription().replace("\n", "<br />\n"));
-		job.setJobDetail(job.getJobDetail().replace("\n", "<br />\n"));
-		
 		System.out.println(job);
-		
 		model.addAttribute("job", job);
-		
 		return "jobs/job";
 	}
 }

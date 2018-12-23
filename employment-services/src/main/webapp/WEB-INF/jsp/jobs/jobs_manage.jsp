@@ -64,23 +64,23 @@
 			<c:forEach items="${postedJobs}" var="job">
 				<div class="col-xs-12">
 					<div class="item-block">
-						<header> <%-- <a href="/companies/${job.company.id}"><c:if
+						<header> <a href="/companies/${job.company.id}"><c:if
 								test="${job.company.company_images.size() != 0}">
 								<img
 									src="img/${job.company.company_images.get(0).company_image}"
 									alt="${job.company.company_name}">
-							</c:if></a> --%>
+							</c:if></a>
 						<div class="hgroup">
 							<h4>
-								<a href="/jobs/${job.id}">${job.jobTitle}</a>
+								<a href="/jobs/${job.id}">${job.jobType.jobType}</a>
 							</h4>
 							<h5>
-								<a href="/companies/${job.company.id}">${job.company.companyName}</a>
+								<a href="/companies/${job.company.id}">${job.company.company_name}</a>
 							</h5>
 						</div>
 						<div class="header-meta">
-							<span class="location">${job.location.city},
-									${job.location.state}</span>
+							<span class="location">${job.jobLocation.street_adress},
+									${job.jobLocation.city}</span>
 							<time>Posted: ${job.createdDate}</time>
 						</div>
 						</header>

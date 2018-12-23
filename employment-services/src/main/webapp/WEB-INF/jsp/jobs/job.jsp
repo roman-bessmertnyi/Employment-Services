@@ -43,24 +43,24 @@
 		style="background-image: url(img/bg-banner2.jpg)">
 	<div class="container">
 		<div class="header-detail">
-			<%-- <c:if test="${job.company.company_images.size() != 0}">
+			<c:if test="${job.company.company_images.size() != 0}">
 							<img
 								src="img/${job.company.company_images.get(0).company_image}"
 								alt="">
-						</c:if> --%>
+						</c:if>
 			<div class="hgroup">
-				<h1>${job.jobTitle}</h1>
+				<h1>${job.jobType.jobType}</h1>
 				<h3>
-					<a href="#">${job.company.companyName}</a>
+					<a href="#">${job.company.company_name}</a>
 				</h3>
 			</div>
 			<time>Posted: ${job.createdDate}</time>
 			<hr>
-			<p class="lead">${job.description}</p>
+			<p class="lead">${job.jobDescription}</p>
 
 			<ul class="details cols-3">
-				<li><i class="fa fa-map-marker"></i> <span>${job.location.city},
-						${job.location.state}</span></li>
+				<li><i class="fa fa-map-marker"></i> <span>${job.jobLocation.street_adress},
+						${job.jobLocation.city}</span></li>
 
 				<!-- <li><i class="fa fa-briefcase"></i> <span>Full time</span></li>
 
@@ -93,7 +93,52 @@
 	<main> <!-- Job detail --> <section>
 	<div class="container">
 
-		<p class="lead">${job.jobDetail}</p>
+		<p>Google is and always will be an engineering company. We hire
+			people with a broad set of technical skills who are ready to tackle
+			some of technology's greatest challenges and make an impact on
+			millions, if not billions, of users. At Google, engineers not only
+			revolutionize search, they routinely work on massive scalability and
+			storage solutions, large-scale applications and entirely new
+			platforms for developers around the world. From AdWords to Chrome,
+			Android to YouTube, Social to Local, Google engineers are changing
+			the world one technological achievement after another.</p>
+
+		<br>
+		<h4>Responsibilities</h4>
+		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
+			odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
+			Suspendisse urna nibh, viverra non.</p>
+		<ul>
+			<li>Build next-generation web applications with a focus on the
+				client side.</li>
+			<li>Redesign UI's, implement new UI's, and pick up Java as
+				necessary.</li>
+			<li>Explore and design dynamic and compelling consumer
+				experiences.</li>
+			<li>Design and build scalable framework for web applications.</li>
+		</ul>
+
+		<br>
+		<h4>Minimum qualifications</h4>
+		<ul>
+			<li>BA/BS degree in a technical field or equivalent practical
+				experience.</li>
+			<li>2 years of relevant work experience in software development.</li>
+			<li>Programming experience in C, C++ or Java.</li>
+			<li>Experience with AJAX, HTML and CSS.</li>
+		</ul>
+
+		<br>
+		<h4>Preferred qualifications</h4>
+		<ul>
+			<li>Interest in user interface design.</li>
+			<li>Web application development experience.</li>
+			<li>Experience working on cross-browser platforms.</li>
+			<li>Development experience designing object-oriented JavaScript.</li>
+			<li>Experience with user interface frameworks such as XUL, Flex
+				and XAML.</li>
+			<li>Knowledge of user interface design.</li>
+		</ul>
 
 	</div>
 	</section> <!-- END Job detail --> </main>
