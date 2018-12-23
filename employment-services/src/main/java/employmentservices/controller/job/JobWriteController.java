@@ -90,10 +90,6 @@ public class JobWriteController {
 
 	@RequestMapping(value = "/jobs/post", method = RequestMethod.POST)
 	public String jobsPost(@Valid @ModelAttribute("job") JobPost job, BindingResult result, ModelMap model) {
-<<<<<<< HEAD
-		
-=======
->>>>>>> parent of a863b46... Fixed company view, company and job write
 		if (result.hasErrors()) {
 			System.out.println("There are errors");
 			for (ObjectError e : result.getAllErrors()) {
