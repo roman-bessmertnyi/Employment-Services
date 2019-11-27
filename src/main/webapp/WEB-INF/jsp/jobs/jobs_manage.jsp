@@ -64,12 +64,7 @@
 			<c:forEach items="${postedJobs}" var="job">
 				<div class="col-xs-12">
 					<div class="item-block">
-						<header> <a href="/companies/${job.company.id}"><c:if
-								test="${job.company.company_images.size() != 0}">
-								<img
-									src="img/${job.company.company_images.get(0).company_image}"
-									alt="${job.company.company_name}">
-							</c:if></a>
+						<header>
 						<div class="hgroup">
 							<h4>
 								<a href="/jobs/${job.id}">${job.jobType.jobType}</a>

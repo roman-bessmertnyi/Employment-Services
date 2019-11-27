@@ -73,11 +73,6 @@
 				<!-- Job item -->
 				<div class="col-xs-12">
 					<a class="item-block" href="/jobs/${job.id}"> <header>
-						<c:if test="${job.company.company_images.size() != 0}">
-							<img
-								src="../img/${job.company.company_images.get(0).company_image}"
-								alt="">
-						</c:if>
 						<div class="hgroup">
 							<h4>${job.jobType.jobType}r</h4>
 							<h5>

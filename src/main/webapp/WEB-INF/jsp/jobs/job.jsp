@@ -24,7 +24,7 @@
 	rel='stylesheet' type='text/css'>
 
 <!-- Favicons -->
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">company_images
 <link rel="icon" href="img/favicon.ico">
 </head>
 
@@ -43,11 +43,6 @@
 		style="background-image: url(img/bg-banner2.jpg)">
 	<div class="container">
 		<div class="header-detail">
-			<c:if test="${job.company.company_images.size() != 0}">
-							<img
-								src="img/${job.company.company_images.get(0).company_image}"
-								alt="">
-						</c:if>
 			<div class="hgroup">
 				<h1>${job.jobType.jobType}</h1>
 				<h3>

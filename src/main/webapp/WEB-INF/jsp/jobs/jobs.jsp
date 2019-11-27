@@ -97,25 +97,20 @@
 			<c:forEach items="${foundJobs}" var="job">
 				<div class="col-xs-12">
 					<a class="item-block" href="/jobs/${job.id}"> <header>
-						<c:if test="${job.company.company_images.size() != 0}">
-							<img
-								src="img/${job.company.company_images.get(0).company_image}"
-								alt="">
-						</c:if>
 						<div class="hgroup">
 							<h4>${job.jobType.jobType}</h4>
 							<h5>
-								${job.company.company_name} <span class="label label-success">Full-time</span>
+								${job.company.companyName} <span class="label label-success">Full-time</span>
 							</h5>
 						</div>
 						<time>Posted: ${job.createdDate}</time> </header>
 
 						<div class="item-body">
-							<p>${job.jobDescription}</p>
+							<p>${job.description}</p>
 						</div> <footer>
 						<ul class="details cols-3">
-							<li><i class="fa fa-map-marker"></i> <span>${job.jobLocation.street_adress},
-									${job.jobLocation.city}</span></li>
+							<li><i class="fa fa-map-marker"></i> <span>${job.location.state},
+									${job.location.city}</span></li>
 						</ul>
 						</footer>
 					</a>

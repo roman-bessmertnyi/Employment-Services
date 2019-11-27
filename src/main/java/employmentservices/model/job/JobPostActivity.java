@@ -2,6 +2,7 @@ package employmentservices.model.job;
 // Generated 22.06.2018 15:44:18 by Hibernate Tools 5.2.10.Final
 
 import java.util.Date;
+
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
